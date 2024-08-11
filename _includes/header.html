@@ -17,6 +17,7 @@
         </label>
 
         <div class="trigger">
+          {%- assign page_paths = site.header_pages | default: default_paths -%}
           {%- assign ordered_pages = site.pages | where: "path", page_paths | sort: "nav-order" -%}
           {%- for my_page in ordered_pages -%}
             {%- if my_page.title -%}
