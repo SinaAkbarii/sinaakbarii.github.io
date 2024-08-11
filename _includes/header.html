@@ -18,13 +18,14 @@
 
         <div class="trigger">
           <!-- {%- assign default_paths = site.pages | map: "path" -%} -->
-          {%- assign ordered_pages = site.pages | sort: "nav-order" -%}
+          <!-- {%- assign ordered_pages = site.pages -%} -->
           <!-- {%- assign page_paths = default_paths -%} -->
           <!-- {%- assign ordered_pages = site.pages | where: "path", page_paths | sort: "nav-order" -%} -->
           <!-- <a class="page-link" href="">{{ page_paths | escape }}</a> -->
-          <a class="page-link" href="">{{ ordered_pages | escape }}</a>
+          <!-- <a class="page-link" href="">{{ ordered_pages | escape }}</a> -->
           <!-- <a class="page-link" href="">{{ site.pages | escape }}</a> -->
-          {%- for my_page in ordered_pages -%}
+          {% assign sorted_pages = site.pages | sort: "nav-order" %}
+          {%- for my_page in sorted_pages -%}
             {%- if my_page.title -%}
             <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
