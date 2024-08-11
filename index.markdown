@@ -2,10 +2,17 @@
 layout: home
 ---
 
-Hi, you've tumbled upon my page. I am Sina, a PhD candidate in Computer Science at École Polytechnique Fédérale de Lausanne (EPFL). I am advised by [Negar Kiyavash](https://people.epfl.ch/negar.kiyavash?lang=en), chair of [Business Analytics](https://www.epfl.ch/labs/ban/). Previously, I received my double-major BSc. in Electrical Engineering and Computer Science in 2019.
+<div style="display: flex; align-items: center;">
+    <img src="/pics/head.jpg" alt="Sina" style="width:200px;height:auto; margin-right:20px">
+    <div>
+        <p>Hi, you've tumbled upon my page. I am Sina, a PhD candidate in Computer Science at École Polytechnique Fédérale de Lausanne (EPFL). I am advised by <a href="https://people.epfl.ch/negar.kiyavash?lang=en">Negar Kiyavash</a>, chair of <a href="https://www.epfl.ch/labs/ban/">Business Analytics</a>. Previously, I received my double-major BSc. in Electrical Engineering and Computer Science in 2019.</p>
+        <p>My research primarily focuses on causal inference, with a broad interest in statistics and machine learning.</p>
+    </div>
+</div>
 
-My research primarily focuses on causal inference, with a broad interest in statistics and machine learning.
 
+<br>
+<br>
 ## News
 [Jul 2024] I presented my Spotlight paper on the ['Triple Changes Estimator'](https://icml.cc/virtual/2024/poster/32647), a generalization of the changes-in-changes framework, at ICML 2024, Vienna.
 
