@@ -6,4 +6,4 @@ nav-include : true
 nav-order : 2
 ---
 
-Page under construction.
+Oops, sorry for the wait but this page is still under construction. See you later!
