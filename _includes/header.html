@@ -21,6 +21,7 @@
           {%- assign page_paths = default_paths -%}
           <!-- {%- assign ordered_pages = site.pages | where: "path", page_paths | sort: "nav-order" -%} -->
           {%- assign ordered_pages = site.pages | where: "path", page_paths | sort: "nav-order" -%}
+          <a class="page-link" href="">{{ page_paths | escape }}</a>
           <a class="page-link" href="">{{ ordered_pages | escape }}</a>
           {%- for my_page in ordered_pages -%}
             {%- if my_page.title -%}
