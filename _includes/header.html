@@ -17,7 +17,9 @@
         </label>
 
         <div class="trigger">
-          {%- assign page_paths = site.header_pages | default: default_paths -%}
+          {%- assign default_paths = site.pages | map: "path" -%}
+          {%- assign page_paths = default_paths -%}
+          <!-- {%- assign page_paths = site.header_pages | default: default_paths -%} -->
           <a class="page-link" href="">{{ page_paths | escape}}</a>
           {%- assign ordered_pages = site.pages | where: "path", page_paths | sort: "nav-order" -%}
           {%- for my_page in ordered_pages -%}
