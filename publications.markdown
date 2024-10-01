@@ -25,7 +25,7 @@ See my publications on my [Google Scholar page](https://scholar.google.com/citat
 
 [NeurIPS, 2023] ['Causal imitability under context-specific independence relations'](https://proceedings.neurips.cc/paper_files/paper/2023/file/54e13b23fa2f399cea6e67acf9063c40-Paper-Conference.pdf)
 
-[ICML, 2022, ORAL -- <span style="color:orange">Outstanding paper runner up</span> award] ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380).
+[ICML, 2022, <span style="color:orange">ORAL</span> -- <span style="color:cyan">Outstanding paper runner up</span> award] ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380).
 
 [AAAI, 2022] ['Learning Bayesian Networks in the Presence of Structural Side Information'](https://ojs.aaai.org/index.php/AAAI/article/view/20750/20509)
 
