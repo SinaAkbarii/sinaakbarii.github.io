@@ -6,10 +6,12 @@ nav-include : true
 nav-order : 1
 ---
 
-See my publications on my [Google Scholar page](https://scholar.google.com/citations?user=-kNnS1AAAAAJ&hl=en).
+See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?user=-kNnS1AAAAAJ&hl=en).
 
 ## Journal publications:
-[JMLR, 2024] ['Experimental Design for Causal Effect Identification'](https://arxiv.org/pdf/2205.02232) just accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
+[JMLR, 2025] ['EOptimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
+
+[JMLR, 2025] ['Recursive Causal Discovery'](https://www.jmlr.org/papers/volume26/24-0384/24-0384.pdf)
 
 [TMLR, 2023] ['A Free Lunch with Influence Functions? An Empirical Eval- uation of Influence Functions for Average Treatment Effect Estimation'](https://openreview.net/pdf?id=dQxBRqCjLr)
 
@@ -17,6 +19,12 @@ See my publications on my [Google Scholar page](https://scholar.google.com/citat
 
 
 ## Conference publications:
+[UAI, 2025] ['Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments'](https://proceedings.mlr.press/v286/kivva25a.html)
+
+[UAI, 2025] ['Multi-armed Bandits with Missing Outcomes'](https://proceedings.mlr.press/v286/mahrooghi25a.html)
+
+[CLeaR, 2025] ['Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding'](https://proceedings.mlr.press/v275/jamshidi25a.html)
+
 [NeurIPS, 2024] ['Fast Proxy Experiment Design for Causal Effect Identification'](https://arxiv.org/html/2407.05330v1) to appear at NeurIPS 2024.
 
 [ICML, 2024, <span style="color:blue">SPOTLIGHT</span>] ['Triple changes estimator for targeted policies'](https://icml.cc/virtual/2024/poster/32647)
@@ -37,8 +45,11 @@ See my publications on my [Google Scholar page](https://scholar.google.com/citat
 ## Workshop Publications:
 [NeurIPS, 2023 -- workshop on Optimal Transport and Machine Learning (OTML)] ['Causal Discovery via Monotone Triangular Transport Maps'](https://openreview.net/pdf?id=PMGGrKTIii)
 
-## Under Review:
-[JMLR, 2024] ['Recursive Causal Discovery'](https://arxiv.org/pdf/2403.09300)
+## Preprints:
+['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
+
+['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
+Fully-Connected Neural Networks for Causally Constrained Predictions'](https://arxiv.org/pdf/2410.14485)
 
 
 
