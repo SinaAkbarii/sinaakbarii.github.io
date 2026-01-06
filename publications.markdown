@@ -9,7 +9,7 @@ nav-order : 1
 See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?user=-kNnS1AAAAAJ&hl=en).
 
 ## Journal publications:
-[JMLR, 2025] ['EOptimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
+[JMLR, 2025] ['Optimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
 [JMLR, 2025] ['Recursive Causal Discovery'](https://www.jmlr.org/papers/volume26/24-0384/24-0384.pdf)
 
