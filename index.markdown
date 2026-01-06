@@ -18,7 +18,11 @@ layout: home
 
 [Oct 2025] 🎉 I received my PhD degree in CS from EPFL.
 
-[Sep 2024] Our paper ['Experimental Design for Causal Effect Identification'](https://arxiv.org/pdf/2205.02232) just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
+[Sep 2025] A new manuscript is out! ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
+
+[Jul 2025] Presented two papers at UAI2025, Rio de Jeniro.
+
+[Sep 2024] Our paper ['Optimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
 [Sep 2024] Our paper ['Fast Proxy Experiment Design for Causal Effect Identification'](https://arxiv.org/html/2407.05330v1) got accepted to NeurIPS 2024.
 
