@@ -14,7 +14,7 @@ layout: home
 <br>
 <br>
 ## News
-[Jan 2026] I am starting as a postdoctoral fellow at the University of Cambridge!
+[Jan 2026] I started as a postdoctoral fellow at the University of Cambridge!
 
 [Oct 2025] 🎉 I received my PhD degree in CS from EPFL.
 

@@ -6,9 +6,13 @@ nav-include : true
 nav-order : 2
 ---
 
-[Jan 2026] I am starting as a postdoctoral fellow at the University of Cambridge!
+[Jan 2026] I started as a postdoctoral fellow at the University of Cambridge!
 
 [Oct 2025] 🎉 I received my PhD degree in CS from EPFL.
+
+[Sep 2025] A new manuscript is out! ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
+
+[Jul 2025] Presented two papers at UAI2025, Rio de Jeniro.
 
 [Sep 2024] Our paper ['Experimental Design for Causal Effect Identification'](https://arxiv.org/pdf/2205.02232) just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
