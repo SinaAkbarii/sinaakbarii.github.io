@@ -19,6 +19,9 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 
 
 ## Conference publications:
+[ICLR, 2026]['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
+Fully-Connected Neural Networks for Causally Constrained Predictions'](https://openreview.net/pdf?id=ZIQactmQxb)
+
 [UAI, 2025] ['Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments'](https://proceedings.mlr.press/v286/kivva25a.html)
 
 [UAI, 2025] ['Multi-armed Bandits with Missing Outcomes'](https://proceedings.mlr.press/v286/mahrooghi25a.html)
@@ -47,9 +50,6 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 
 ## Preprints:
 ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
-
-['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
-Fully-Connected Neural Networks for Causally Constrained Predictions'](https://arxiv.org/pdf/2410.14485)
 
 
 
