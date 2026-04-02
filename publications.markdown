@@ -13,7 +13,7 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 
 [JMLR, 2025] ['Recursive Causal Discovery'](https://www.jmlr.org/papers/volume26/24-0384/24-0384.pdf)
 
-[TMLR, 2023] ['A Free Lunch with Influence Functions? An Empirical Eval- uation of Influence Functions for Average Treatment Effect Estimation'](https://openreview.net/pdf?id=dQxBRqCjLr)
+[TMLR, 2023] ['A Free Lunch with Influence Functions? An Empirical Evaluation of Influence Functions for Average Treatment Effect Estimation'](https://openreview.net/pdf?id=dQxBRqCjLr)
 
 [JMLR, 2021] ['A Recursive Markov Boundary-Based Approach to Causal Structure Learning'](http://proceedings.mlr.press/v150/mokhtarian21a/mokhtarian21a.pdf)
 

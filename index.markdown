@@ -14,6 +14,8 @@ layout: home
 <br>
 <br>
 ## News
+[Apr 2026] I am giving a talk at EuroCIM! 
+
 [Feb 2026] Our ['CaTs and DAGs'](https://openreview.net/pdf?id=ZIQactmQxb) found shelter at ICLR 2026 :) 
 
 [Jan 2026] I started as a postdoctoral fellow at the University of Cambridge!
