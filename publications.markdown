@@ -8,6 +8,11 @@ nav-order : 1
 
 See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?user=-kNnS1AAAAAJ&hl=en).
 
+## Preprints:
+['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
+
+[Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models](https://arxiv.org/pdf/2604.12802)
+
 ## Journal publications:
 [JMLR, 2025] ['Optimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
@@ -48,8 +53,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 ## Workshop Publications:
 [NeurIPS, 2023 -- workshop on Optimal Transport and Machine Learning (OTML)] ['Causal Discovery via Monotone Triangular Transport Maps'](https://openreview.net/pdf?id=PMGGrKTIii)
 
-## Preprints:
-['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
+
 
 
 
