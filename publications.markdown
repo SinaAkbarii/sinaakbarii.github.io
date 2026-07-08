@@ -11,8 +11,6 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 ## Preprints:
 ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
 
-['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)
-
 ## Journal publications:
 [JMLR, 2025] ['Optimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
@@ -24,6 +22,9 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 
 
 ## Conference publications:
+
+[UAI, 2026] ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)
+
 [ICLR, 2026] ['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
 Fully-Connected Neural Networks for Causally Constrained Predictions'](https://openreview.net/pdf?id=ZIQactmQxb)
 

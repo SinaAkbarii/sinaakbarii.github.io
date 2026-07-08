@@ -14,6 +14,8 @@ layout: home
 <br>
 <br>
 ## News
+[Jun 2026] Our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802) was accepted for an oral presentation at UAI 2026. Big props to Pargol & Mohammad Reza!
+
 [Apr 2026] I gave a talk at EuroCIM! ([Slides](https://www.sakbari.com/EuroCIM2026.pdf), [Paper](https://arxiv.org/pdf/2604.12802))
 
 [Feb 2026] Our ['CaTs and DAGs'](https://openreview.net/pdf?id=ZIQactmQxb) found shelter at ICLR 2026 :) 
