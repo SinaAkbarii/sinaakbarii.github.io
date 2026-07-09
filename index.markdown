@@ -26,7 +26,7 @@ layout: home
 
 [Sep 2025] A new manuscript is out! ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
 
-[Jul 2025] Presented two papers at UAI2025, Rio de Jeniro.
+[Jul 2025] Presented two papers at UAI2025, Rio de Janeiro.
 
 [Sep 2024] Our paper ['Optimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf) just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
