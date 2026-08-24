@@ -6,6 +6,8 @@ nav-include : true
 nav-order : 2
 ---
 
+[Aug 2026] 🎉 We won the UAI Best Paper Award for our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)!
+
 [Jun 2026] Our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802) was accepted for an oral presentation at UAI 2026. Shout-out to Pargol & Mohammad Reza!
 
 [Apr 2026] I gave a talk at EuroCIM! ([Slides](https://www.sakbari.com/EuroCIM2026.pdf), [Paper](https://arxiv.org/pdf/2604.12802))
