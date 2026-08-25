@@ -6,4 +6,4 @@ nav-include : true
 nav-order : 2
 ---
 
-{% include news.md %}
+{% include news.markdown %}

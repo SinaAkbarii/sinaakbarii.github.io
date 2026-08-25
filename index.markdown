@@ -14,4 +14,4 @@ layout: home
 <br>
 <br>
 ## News
-{% include news.md %}
+{% include news.markdown %}
