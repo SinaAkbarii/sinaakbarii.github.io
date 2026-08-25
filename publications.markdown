@@ -6,7 +6,7 @@ nav-include : true
 nav-order : 1
 ---
 
-See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?user=-kNnS1AAAAAJ&hl=en).
+See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate).
 
 ## Preprints:
 ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
