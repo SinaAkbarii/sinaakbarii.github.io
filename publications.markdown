@@ -23,7 +23,7 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 
 ## Conference publications:
 
-[UAI, 2026] ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)
+[UAI, 2026, <span style="color:blue">ORAL</span> -- <span style="color:orange">Best Paper Award</span>] ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)
 
 [ICLR, 2026] ['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
 Fully-Connected Neural Networks for Causally Constrained Predictions'](https://openreview.net/pdf?id=ZIQactmQxb)
