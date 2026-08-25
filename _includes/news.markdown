@@ -1,4 +1,4 @@
-[Aug 2026] 🎉 We won the <span style="color:#E76F51; font-size:1.18em">UAI Best Paper Award</span> for our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)!
+[Aug 2026] 🎉🏆 We won the <span style="color:#E76F51; font-size:1.18em">UAI Best Paper Award</span> for our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)!
 
 [Jun 2026] Our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802) was accepted for an oral presentation at UAI 2026. Shout-out to Pargol & Mohammad Reza!
 
@@ -8,7 +8,7 @@
 
 [Jan 2026] I started as a postdoctoral fellow at the University of Cambridge!
 
-[Oct 2025] 🎉 I received my PhD degree in CS from EPFL.
+[Oct 2025] 🎉🎓 I received my PhD degree in CS from EPFL. ([Thesis](https://infoscience.epfl.ch/entities/publication/e2a09d92-2463-4ee1-82ac-fa5b4ef4dfec))
 
 [Sep 2025] A new manuscript is out! ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
 
