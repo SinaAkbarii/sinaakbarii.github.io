@@ -6,30 +6,4 @@ nav-include : true
 nav-order : 2
 ---
 
-[Aug 2026] 🎉 We won the UAI Best Paper Award for our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)!
-
-[Jun 2026] Our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802) was accepted for an oral presentation at UAI 2026. Shout-out to Pargol & Mohammad Reza!
-
-[Apr 2026] I gave a talk at EuroCIM! ([Slides](https://www.sakbari.com/EuroCIM2026.pdf), [Paper](https://arxiv.org/pdf/2604.12802))
-
-[Feb 2026] Our ['CaTs and DAGs'](https://openreview.net/pdf?id=ZIQactmQxb) found shelter at ICLR 2026 :) 
-
-[Jan 2026] I started as a postdoctoral fellow at the University of Cambridge!
-
-[Oct 2025] 🎉 I received my PhD degree in CS from EPFL.
-
-[Sep 2025] A new manuscript is out! ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788)
-
-[Jul 2025] Presented two papers at UAI2025, Rio de Janeiro.
-
-[Sep 2024] Our paper ['Experimental Design for Causal Effect Identification'](https://arxiv.org/pdf/2205.02232) just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
-
-[Sep 2024] Our paper ['Fast Proxy Experiment Design for Causal Effect Identification'](https://arxiv.org/html/2407.05330v1) got accepted to NeurIPS 2024.
-
-[Jul 2024] I presented my Spotlight paper on the ['Triple Changes Estimator'](https://icml.cc/virtual/2024/poster/32647), a generalisation of the changes-in-changes framework, at ICML 2024, Vienna.
-
-[Jul 2024] The scripts for automating workflows related to OpenReview conferences are now accessible on [my GitHub repo](https://github.com/SinaAkbarii/OpenReview_workflow).
-
-[Jul 2024] The UAI 2024 conference was a blast! Happy to be a part of the [organising committee](https://www.auai.org/uai2024/organizing_committee).
-
-[Feb 2024] I am giving an invited talk at the structure learning symposium of SIAM conference on Uncertainty Quantification (UQ24).
+{% include news.md %}

@@ -42,7 +42,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 
 [NeurIPS, 2023] ['Causal imitability under context-specific independence relations'](https://proceedings.neurips.cc/paper_files/paper/2023/file/54e13b23fa2f399cea6e67acf9063c40-Paper-Conference.pdf)
 
-[ICML, 2022, <span style="color:#3B82F6; font-size:1.08em">ORAL</span> -- <span style="color:#E76F51; font-size:1.18em">Outstanding paper runner up</span> award] ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380).
+[ICML, 2022, <span style="color:#3B82F6; font-size:1.08em">ORAL</span> -- <span style="color:#E76F51; font-size:1.18em">Outstanding Paper Runner-up Award</span>] ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380).
 
 [AAAI, 2022] ['Learning Bayesian Networks in the Presence of Structural Side Information'](https://ojs.aaai.org/index.php/AAAI/article/view/20750/20509)
 
