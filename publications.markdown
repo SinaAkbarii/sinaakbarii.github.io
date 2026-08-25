@@ -23,7 +23,7 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 
 ## Conference publications:
 
-[UAI, 2026, <span style="color:blue">ORAL</span> -- <span style="color:orange">Best Paper Award</span>] ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)
+[UAI, 2026, <span style="color:#3B82F6; font-size:1.08em">ORAL</span> -- <span style="color:#E76F51; font-size:1.18em">Best Paper Award</span>] ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://openreview.net/pdf?id=P3nnRORzdV)
 
 [ICLR, 2026] ['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
 Fully-Connected Neural Networks for Causally Constrained Predictions'](https://openreview.net/pdf?id=ZIQactmQxb)
@@ -34,15 +34,15 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 
 [CLeaR, 2025] ['Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding'](https://proceedings.mlr.press/v275/jamshidi25a.html)
 
-[NeurIPS, 2024] ['Fast Proxy Experiment Design for Causal Effect Identification'](https://arxiv.org/html/2407.05330v1) to appear at NeurIPS 2024.
+[NeurIPS, 2024] ['Fast Proxy Experiment Design for Causal Effect Identification'](https://proceedings.neurips.cc/paper_files/paper/2024/file/5bd9fbb3a5a985f80c16ddd0ec1dfc43-Paper-Conference.pdf)
 
-[ICML, 2024, <span style="color:blue">SPOTLIGHT</span>] ['Triple changes estimator for targeted policies'](https://icml.cc/virtual/2024/poster/32647)
+[ICML, 2024, <span style="color:#3B82F6; font-size:1.08em">SPOTLIGHT</span>] ['Triple changes estimator for targeted policies'](https://icml.cc/virtual/2024/poster/32647)
 
 [NeurIPs, 2023] ['Causal effect identification in uncertain causal networks'](https://proceedings.neurips.cc/paper_files/paper/2023/file/017c897b4d85a744f345ccbf9d71e501-Paper-Conference.pdf)
 
 [NeurIPS, 2023] ['Causal imitability under context-specific independence relations'](https://proceedings.neurips.cc/paper_files/paper/2023/file/54e13b23fa2f399cea6e67acf9063c40-Paper-Conference.pdf)
 
-[ICML, 2022, <span style="color:blue">ORAL</span> -- <span style="color:orange">Outstanding paper runner up</span> award] ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380).
+[ICML, 2022, <span style="color:#3B82F6; font-size:1.08em">ORAL</span> -- <span style="color:#E76F51; font-size:1.18em">Outstanding paper runner up</span> award] ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380).
 
 [AAAI, 2022] ['Learning Bayesian Networks in the Presence of Structural Side Information'](https://ojs.aaai.org/index.php/AAAI/article/view/20750/20509)
 
@@ -53,11 +53,3 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 
 ## Workshop Publications:
 [NeurIPS, 2023 -- workshop on Optimal Transport and Machine Learning (OTML)] ['Causal Discovery via Monotone Triangular Transport Maps'](https://openreview.net/pdf?id=PMGGrKTIii)
-
-
-
-
-
-
-
-
