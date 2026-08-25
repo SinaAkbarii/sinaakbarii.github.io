@@ -1,4 +1,4 @@
-[Aug 2026] 🎉 We won the UAI Best Paper Award for our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)!
+[Aug 2026] 🎉 We won the <span style="color:#E76F51; font-size:1.18em">UAI Best Paper Award</span> for our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802)!
 
 [Jun 2026] Our paper on ['Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://arxiv.org/pdf/2604.12802) was accepted for an oral presentation at UAI 2026. Shout-out to Pargol & Mohammad Reza!
 
