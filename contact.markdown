@@ -7,14 +7,6 @@ nav-order : 3
 ---
 
 <style>
-:root {
-  --site-cyan: #087F91;
-  --site-blue: #2563EB;
-  --site-repo: #4B5563;
-  --site-talk: #B23A48;
-  --site-orcid: #6C8E23;
-}
-
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -24,7 +16,8 @@ nav-order : 3
 
 .contact-card {
   padding: 0.72em 0.82em;
-  border: 1px solid rgba(0, 0, 0, 0.20);
+  background: var(--site-surface, transparent);
+  border: 1px solid var(--site-border, rgba(0, 0, 0, 0.20));
   border-radius: 0.46em;
 }
 
@@ -57,7 +50,7 @@ nav-order : 3
 .contact-elsewhere {
   margin-top: 0.9em;
   padding-top: 0.72em;
-  border-top: 1px solid rgba(0, 0, 0, 0.20);
+  border-top: 1px solid var(--site-border, rgba(0, 0, 0, 0.20));
 }
 
 .contact-elsewhere strong {
@@ -118,27 +111,27 @@ nav-order : 3
 
 .contact-btn--scholar:hover,
 .contact-btn--scholar:focus-visible {
-  background: rgba(8, 127, 145, 0.08);
+  background: var(--hover-cyan, rgba(8, 127, 145, 0.08));
 }
 
 .contact-btn--github:hover,
 .contact-btn--github:focus-visible {
-  background: rgba(75, 85, 99, 0.08);
+  background: var(--hover-repo, rgba(75, 85, 99, 0.08));
 }
 
 .contact-btn--x:hover,
 .contact-btn--x:focus-visible {
-  background: rgba(178, 58, 72, 0.08);
+  background: var(--hover-talk, rgba(178, 58, 72, 0.08));
 }
 
 .contact-btn--linkedin:hover,
 .contact-btn--linkedin:focus-visible {
-  background: rgba(37, 99, 235, 0.08);
+  background: var(--hover-blue, rgba(37, 99, 235, 0.08));
 }
 
 .contact-btn--orcid:hover,
 .contact-btn--orcid:focus-visible {
-  background: rgba(108, 142, 35, 0.08);
+  background: var(--hover-orcid, rgba(108, 142, 35, 0.08));
 }
 
 .contact-btn--scholar::before {

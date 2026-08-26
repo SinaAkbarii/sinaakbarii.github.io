@@ -3,18 +3,13 @@ layout: home
 ---
 
 <style>
-:root {
-  --site-cyan: #087F91;
-  --site-blue: #2563EB;
-  --site-award: #D95D45;
-}
-
 .home-intro {
   display: flex;
   align-items: center;
   gap: 1.2em;
   padding: 0.9em 1em;
-  border: 1px solid rgba(0, 0, 0, 0.20);
+  background: var(--site-surface, transparent);
+  border: 1px solid var(--site-border, rgba(0, 0, 0, 0.20));
   border-radius: 0.48em;
 }
 
@@ -22,7 +17,7 @@ layout: home
   width: 200px;
   height: auto;
   flex: 0 0 auto;
-  border: 1px solid rgba(0, 0, 0, 0.20);
+  border: 1px solid var(--site-border, rgba(0, 0, 0, 0.20));
   border-radius: 0.45em;
 }
 

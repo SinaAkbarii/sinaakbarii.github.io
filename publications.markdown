@@ -8,14 +8,17 @@ nav-order : 1
 
 <style>
 :root {
-  --publication-cyan: #087F91;
+  --publication-cyan: var(--site-cyan, #087F91);
 }
 
+/* Keep the site's cyan identity, but use a slightly darker/readable version
+   on this publications page. */
 a,
 a:visited {
   color: var(--publication-cyan);
 }
 
+/* Publication styling only. Existing site-wide font and link colors are inherited. */
 
 /* --- Collapsed publication entry --- */
 .pub-venue {
@@ -44,10 +47,12 @@ a:visited {
 }
 
 .pub-status {
+  color: var(--site-blue, #2563EB);
   font-weight: 600;
 }
 
 .pub-award {
+  color: var(--site-award, #D95D45);
   font-weight: 700;
   border-width: 1.35px;
   padding-left: 0.52em;
@@ -188,52 +193,52 @@ a:visited {
 /* Resource types use distinct but coordinated colors. */
 .pub-btn--repo,
 .pub-btn--repo:visited {
-  color: #4B5563;
+  color: var(--site-repo, #4B5563);
 }
 
 .pub-btn--venue,
 .pub-btn--venue:visited {
-  color: #087F91;
+  color: var(--site-cyan, #087F91);
 }
 
 .pub-btn--slides,
 .pub-btn--slides:visited {
-  color: #6D5BD0;
+  color: var(--site-slides, #6D5BD0);
 }
 
 .pub-btn--poster,
 .pub-btn--poster:visited {
-  color: #B7651B;
+  color: var(--site-poster, #B7651B);
 }
 
 .pub-btn--talk,
 .pub-btn--talk:visited {
-  color: #B23A48;
+  color: var(--site-talk, #B23A48);
 }
 
 .pub-btn--repo:hover,
 .pub-btn--repo:focus-visible {
-  background: rgba(75, 85, 99, 0.08);
+  background: var(--hover-repo, rgba(75, 85, 99, 0.08));
 }
 
 .pub-btn--venue:hover,
 .pub-btn--venue:focus-visible {
-  background: rgba(8, 127, 145, 0.08);
+  background: var(--hover-cyan, rgba(8, 127, 145, 0.08));
 }
 
 .pub-btn--slides:hover,
 .pub-btn--slides:focus-visible {
-  background: rgba(109, 91, 208, 0.08);
+  background: var(--hover-slides, rgba(109, 91, 208, 0.08));
 }
 
 .pub-btn--poster:hover,
 .pub-btn--poster:focus-visible {
-  background: rgba(183, 101, 27, 0.08);
+  background: var(--hover-poster, rgba(183, 101, 27, 0.08));
 }
 
 .pub-btn--talk:hover,
 .pub-btn--talk:focus-visible {
-  background: rgba(178, 58, 72, 0.08);
+  background: var(--hover-talk, rgba(178, 58, 72, 0.08));
 }
 
 .pub-btn:hover,
@@ -312,7 +317,7 @@ a:visited {
   overflow-x: auto;
   border: 1px solid currentColor;
   border-radius: 0.4em;
-  background: transparent;
+  background: var(--site-surface-soft, transparent);
   color: inherit;
   font-size: 0.76em;
   line-height: 1.45;
@@ -379,7 +384,7 @@ function fallbackCopyPubBibtex(text, callback) {
 }
 </script>
 
-Last updated: August 26, 2026. My [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate) may sometimes be more up to date.
+See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate).
 
 ## Preprints:
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788){:.pub-title-link}
@@ -508,7 +513,7 @@ Last updated: August 26, 2026. My [Google Scholar page](https://scholar.google.c
 
 ## Conference publications:
 
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status" style="color:#2563EB">ORAL</span> <span class="pub-award" style="color:#D95D45"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://openreview.net/pdf?id=P3nnRORzdV){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://openreview.net/pdf?id=P3nnRORzdV){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-6" hidden>
 <div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">instrumental variables</span><span class="pub-keyword">partial identification</span><span class="pub-keyword">sharp bounds</span><span class="pub-keyword">causal inference</span></div>
@@ -659,7 +664,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 </div>
 </div>
 
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status" style="color:#2563EB">SPOTLIGHT</span> ['Triple changes estimator for targeted policies'](https://icml.cc/virtual/2024/poster/32647){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status">SPOTLIGHT</span> ['Triple changes estimator for targeted policies'](https://icml.cc/virtual/2024/poster/32647){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-12" hidden>
 <div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">policy evaluation</span><span class="pub-keyword">triple differences</span><span class="pub-keyword">changes-in-changes</span><span class="pub-keyword">optimal transport</span></div>
@@ -731,7 +736,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 </div>
 </div>
 
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status" style="color:#2563EB">ORAL</span> <span class="pub-award" style="color:#D95D45"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380){:.pub-title-link}.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380){:.pub-title-link}.
 
 <div class="pub-card" id="pub-details-15" hidden>
 <div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal identification</span><span class="pub-keyword">intervention design</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">do-calculus</span></div>

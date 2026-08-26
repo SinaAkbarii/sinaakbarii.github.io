@@ -1,0 +1,312 @@
+/* Shared light/dark theme for sakbari.com */
+
+:root {
+  color-scheme: light;
+
+  --site-bg: #FFFFFF;
+  --site-surface: #FFFFFF;
+  --site-surface-soft: #F5F7F8;
+  --site-text: #2F3337;
+  --site-muted: #6B7280;
+  --site-border: rgba(31, 41, 55, 0.18);
+
+  --site-cyan: #087F91;
+  --site-blue: #2563EB;
+  --site-award: #D95D45;
+  --site-repo: #4B5563;
+  --site-slides: #6D5BD0;
+  --site-poster: #B7651B;
+  --site-talk: #B23A48;
+  --site-orcid: #6C8E23;
+
+  --hover-cyan: rgba(8, 127, 145, 0.08);
+  --hover-blue: rgba(37, 99, 235, 0.08);
+  --hover-award: rgba(217, 93, 69, 0.08);
+  --hover-repo: rgba(75, 85, 99, 0.08);
+  --hover-slides: rgba(109, 91, 208, 0.08);
+  --hover-poster: rgba(183, 101, 27, 0.08);
+  --hover-talk: rgba(178, 58, 72, 0.08);
+  --hover-orcid: rgba(108, 142, 35, 0.08);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --site-bg: #15171A;
+  --site-surface: #1B1F24;
+  --site-surface-soft: #20252B;
+  --site-text: #E5E7EB;
+  --site-muted: #A9B1BC;
+  --site-border: rgba(229, 231, 235, 0.17);
+
+  /* Same color families, lifted for contrast on a dark background. */
+  --site-cyan: #4BC4D2;
+  --site-blue: #78A2FF;
+  --site-award: #F08A72;
+  --site-repo: #B6BEC8;
+  --site-slides: #B6A7FF;
+  --site-poster: #E2A35B;
+  --site-talk: #E47A89;
+  --site-orcid: #A6CE39;
+
+  --hover-cyan: rgba(75, 196, 210, 0.11);
+  --hover-blue: rgba(120, 162, 255, 0.11);
+  --hover-award: rgba(240, 138, 114, 0.11);
+  --hover-repo: rgba(182, 190, 200, 0.10);
+  --hover-slides: rgba(182, 167, 255, 0.11);
+  --hover-poster: rgba(226, 163, 91, 0.11);
+  --hover-talk: rgba(228, 122, 137, 0.11);
+  --hover-orcid: rgba(166, 206, 57, 0.11);
+}
+
+/* Minima / site-wide surfaces */
+html,
+body {
+  background-color: var(--site-bg);
+}
+
+body {
+  color: var(--site-text);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+a,
+a:visited {
+  color: var(--site-cyan);
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.page-heading {
+  color: var(--site-text);
+}
+
+.site-header {
+  background-color: var(--site-bg);
+  border-top-color: var(--site-text);
+  border-bottom-color: var(--site-border);
+}
+
+.site-title,
+.site-title:visited,
+.site-nav .page-link,
+.site-nav .page-link:visited {
+  color: var(--site-text);
+}
+
+.site-nav {
+  background-color: var(--site-bg);
+  border-color: var(--site-border);
+}
+
+.site-nav .menu-icon > svg path {
+  fill: var(--site-text);
+}
+
+.site-footer {
+  background-color: var(--site-bg);
+  border-top-color: var(--site-border);
+}
+
+.footer-col-wrapper,
+.post-meta {
+  color: var(--site-muted);
+}
+
+.svg-icon {
+  fill: var(--site-muted);
+}
+
+blockquote {
+  color: var(--site-muted);
+  border-left-color: var(--site-border);
+}
+
+pre,
+code {
+  color: var(--site-text);
+  background-color: var(--site-surface-soft);
+  border-color: var(--site-border);
+}
+
+table {
+  color: var(--site-text);
+}
+
+table th,
+table td {
+  border-color: var(--site-border);
+}
+
+table tr:nth-child(even) {
+  background-color: var(--site-surface-soft);
+}
+
+hr {
+  border-color: var(--site-border);
+}
+
+/* Components used across the custom pages */
+.home-intro,
+.news-item,
+.contact-card {
+  background-color: var(--site-surface);
+  border-color: var(--site-border) !important;
+}
+
+.home-photo {
+  border-color: var(--site-border) !important;
+}
+
+.contact-elsewhere {
+  border-top-color: var(--site-border) !important;
+}
+
+.pub-card {
+  border-left-color: var(--site-border) !important;
+}
+
+.pub-resources {
+  border-top-color: var(--site-border) !important;
+  border-bottom-color: var(--site-border) !important;
+}
+
+.pub-venue,
+.pub-keyword,
+.pub-copy-btn,
+.bibtex-source {
+  border-color: var(--site-border);
+}
+
+.bibtex-source {
+  background-color: var(--site-surface-soft) !important;
+}
+
+/* Keep badges vivid and readable in either mode. */
+.pub-status,
+.news-status {
+  color: var(--site-blue) !important;
+}
+
+.pub-award,
+.news-award {
+  color: var(--site-award) !important;
+}
+
+/* Shared resource colors */
+.pub-btn--repo,
+.pub-btn--repo:visited,
+.news-btn--repo,
+.news-btn--repo:visited,
+.contact-btn--github,
+.contact-btn--github:visited {
+  color: var(--site-repo) !important;
+}
+
+.pub-btn--venue,
+.pub-btn--venue:visited,
+.news-btn--paper,
+.news-btn--paper:visited,
+.contact-btn--scholar,
+.contact-btn--scholar:visited {
+  color: var(--site-cyan) !important;
+}
+
+.pub-btn--slides,
+.pub-btn--slides:visited,
+.news-btn--slides,
+.news-btn--slides:visited {
+  color: var(--site-slides) !important;
+}
+
+.pub-btn--poster,
+.pub-btn--poster:visited {
+  color: var(--site-poster) !important;
+}
+
+.pub-btn--talk,
+.pub-btn--talk:visited,
+.news-btn--talk,
+.news-btn--talk:visited,
+.contact-btn--x,
+.contact-btn--x:visited {
+  color: var(--site-talk) !important;
+}
+
+.contact-btn--linkedin,
+.contact-btn--linkedin:visited {
+  color: var(--site-blue) !important;
+}
+
+.contact-btn--orcid,
+.contact-btn--orcid:visited {
+  color: var(--site-orcid) !important;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.75rem;
+  padding: 0;
+  border: 1px solid var(--site-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--site-text);
+  vertical-align: middle;
+  cursor: pointer;
+  transition:
+    transform 130ms ease,
+    background-color 130ms ease,
+    border-color 130ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+  background-color: var(--site-surface-soft);
+  border-color: var(--site-muted);
+  outline: none;
+}
+
+.theme-toggle:focus-visible {
+  box-shadow: 0 0 0 2px var(--site-bg), 0 0 0 4px var(--site-cyan);
+}
+
+.theme-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.theme-icon--sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-icon--sun {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-icon--moon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .site-nav .theme-toggle {
+    margin: 0.55rem 0 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .theme-toggle {
+    transition: none;
+  }
+}
