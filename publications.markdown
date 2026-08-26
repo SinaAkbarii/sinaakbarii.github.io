@@ -379,7 +379,7 @@ function fallbackCopyPubBibtex(text, callback) {
 }
 </script>
 
-Disclaimer: my [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate) may sometimes be more up to date.
+Last updated: August 26, 2026. My [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate) may sometimes be more up to date.
 
 ## Preprints:
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788){:.pub-title-link}
