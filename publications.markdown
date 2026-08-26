@@ -11,14 +11,10 @@ nav-order : 1
   --publication-cyan: var(--site-cyan, #087F91);
 }
 
-/* Keep the site's cyan identity, but use a slightly darker/readable version
-   on this publications page. */
 a,
 a:visited {
   color: var(--publication-cyan);
 }
-
-/* Publication styling only. Existing site-wide font and link colors are inherited. */
 
 /* --- Collapsed publication entry --- */
 .pub-venue {
@@ -77,6 +73,66 @@ a:visited {
   text-decoration-thickness: 0.1em;
 }
 
+
+/* --- Publication card --- */
+.pub-entry {
+  margin: 0.58em 0 0.78em 0;
+  padding: 0.72em 0.82em;
+  border: 1px solid var(--site-border, rgba(31, 41, 55, 0.18));
+  border-radius: 0.46em;
+  background: var(--site-surface, transparent);
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+
+.pub-entry:hover {
+  border-color: var(--site-muted, currentColor);
+  transform: translateY(-1px);
+}
+
+/* The card feels interactive, but only the chevron is an actual control. */
+.pub-entry .pub-toggle-button {
+  cursor: pointer;
+}
+
+.pub-page-meta {
+  margin: 0.25em 0 0.28em 0;
+  color: var(--site-muted, #6B7280);
+  font-size: 0.86em;
+  line-height: 1.45;
+}
+
+.pub-page-meta a,
+.pub-page-meta a:visited {
+  color: var(--publication-cyan);
+}
+
+.pub-detail-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.42em;
+  margin: 0.48em 0 1.15em 0;
+  padding: 0.44em 0.62em;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--site-border, rgba(31, 41, 55, 0.18));
+  border-radius: 0.4em;
+  color: var(--site-muted, #6B7280);
+  background: var(--site-surface-soft, transparent);
+  font-size: 0.86em;
+  line-height: 1.4;
+}
+
+.pub-hint-chevron {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.38em;
+  height: 0.38em;
+  margin-left: 0.08em;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(-45deg);
+}
+
 .pub-toggle-button {
   display: inline-flex;
   align-items: center;
@@ -119,7 +175,7 @@ a:visited {
 /* --- Expanded details --- */
 .pub-card {
   display: block;
-  margin: 0.52em 0 1.12em 1.55em;
+  margin: 0.58em 0 0.08em 1.55em;
   padding-left: 0.9em;
   border-left: 1px solid currentColor;
 }
@@ -384,9 +440,19 @@ function fallbackCopyPubBibtex(text, callback) {
 }
 </script>
 
-See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate).
+
+<div class="pub-page-meta">
+<strong>Last updated:</strong> August 2026 · <a href="https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a> may occasionally be more up to date.
+</div>
+
+<div class="pub-detail-hint">
+<span class="pub-hint-chevron" aria-hidden="true"></span>
+<span><strong>Tip:</strong> expand a paper with the chevron to see details and citation info.</span>
+</div>
+
 
 ## Preprints:
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> ['Semiparametric Triple Difference Estimators'](https://arxiv.org/pdf/2502.19788){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-1" hidden>
@@ -410,8 +476,10 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 }</pre>
 </div>
 </div>
+</div>
 
 ## Journal publications:
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-2" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> ['Optimal Experiment Design for Causal Effect Identification'](https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf){:.pub-title-link} Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
 <div class="pub-card" id="pub-details-2" hidden>
@@ -436,7 +504,9 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-3" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> ['Recursive Causal Discovery'](https://www.jmlr.org/papers/volume26/24-0384/24-0384.pdf){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-3" hidden>
@@ -461,7 +531,9 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-4" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">TMLR 2023</span> ['A Free Lunch with Influence Functions? An Empirical Evaluation of Influence Functions for Average Treatment Effect Estimation'](https://openreview.net/pdf?id=dQxBRqCjLr){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-4" hidden>
@@ -483,7 +555,9 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-5" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2021</span> ['A Recursive Markov Boundary-Based Approach to Causal Structure Learning'](http://proceedings.mlr.press/v150/mokhtarian21a/mokhtarian21a.pdf){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-5" hidden>
@@ -509,10 +583,12 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 }</pre>
 </div>
 </div>
+</div>
 
 
 ## Conference publications:
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> ['Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models'](https://openreview.net/pdf?id=P3nnRORzdV){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-6" hidden>
@@ -538,7 +614,9 @@ See my most recent publications on my [Google Scholar page](https://scholar.goog
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-7" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICLR 2026</span> ['CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
 Fully-Connected Neural Networks for Causally Constrained Predictions'](https://openreview.net/pdf?id=ZIQactmQxb){:.pub-title-link}
 
@@ -561,7 +639,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-8" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> ['Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments'](https://proceedings.mlr.press/v286/kivva25a.html){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-8" hidden>
@@ -587,7 +667,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-9" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> ['Multi-armed Bandits with Missing Outcomes'](https://proceedings.mlr.press/v286/mahrooghi25a.html){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-9" hidden>
@@ -613,7 +695,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-10" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">CLeaR 2025</span> ['Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding'](https://proceedings.mlr.press/v275/jamshidi25a.html){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-10" hidden>
@@ -639,7 +723,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-11" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2024</span> ['Fast Proxy Experiment Design for Causal Effect Identification'](https://proceedings.neurips.cc/paper_files/paper/2024/file/5bd9fbb3a5a985f80c16ddd0ec1dfc43-Paper-Conference.pdf){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-11" hidden>
@@ -663,7 +749,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status">SPOTLIGHT</span> ['Triple changes estimator for targeted policies'](https://icml.cc/virtual/2024/poster/32647){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-12" hidden>
@@ -689,7 +777,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-13" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPs 2023</span> ['Causal effect identification in uncertain causal networks'](https://proceedings.neurips.cc/paper_files/paper/2023/file/017c897b4d85a744f345ccbf9d71e501-Paper-Conference.pdf){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-13" hidden>
@@ -712,7 +802,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-14" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023</span> ['Causal imitability under context-specific independence relations'](https://proceedings.neurips.cc/paper_files/paper/2023/file/54e13b23fa2f399cea6e67acf9063c40-Paper-Conference.pdf){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-14" hidden>
@@ -735,7 +827,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> ['Minimm-cost Intervention Design for Causal Effect Identification'](https://icml.cc/virtual/2022/oral/17380){:.pub-title-link}.
 
 <div class="pub-card" id="pub-details-15" hidden>
@@ -761,7 +855,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-16" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">AAAI 2022</span> ['Learning Bayesian Networks in the Presence of Structural Side Information'](https://ojs.aaai.org/index.php/AAAI/article/view/20750/20509){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-16" hidden>
@@ -787,7 +883,9 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-17" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2021</span> ['Recursive Causal Structure Learning in the Presence of Latent Variables and Selection Bias'](https://proceedings.neurips.cc/paper/2021/hash/53edebc543333dfbf7c5933af792c9c4-Abstract.html){:.pub-title-link}.
 
 <div class="pub-card" id="pub-details-17" hidden>
@@ -811,11 +909,13 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
 }</pre>
 </div>
 </div>
+</div>
 
 
 
 
 ## Workshop Publications:
+<div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-18" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023 — workshop on Optimal Transport and Machine Learning (OTML)</span> ['Causal Discovery via Monotone Triangular Transport Maps'](https://openreview.net/pdf?id=PMGGrKTIii){:.pub-title-link}
 
 <div class="pub-card" id="pub-details-18" hidden>
@@ -835,5 +935,6 @@ Fully-Connected Neural Networks for Causally Constrained Predictions'](https://o
   year      = {2023},
   url       = {https://openreview.net/forum?id=PMGGrKTIii}
 }</pre>
+</div>
 </div>
 </div>
