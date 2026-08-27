@@ -51,7 +51,7 @@ description: "In this work, we revisit triple-difference designs from a semipara
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>The triple difference causal inference framework is an extension of the well-known difference-in-differences framework. It relaxes the parallel trends assumption of the difference-in-differences framework through leveraging data from an auxiliary domain. Despite being commonly applied in empirical research, the triple difference framework has received relatively limited attention in the statistics literature. Specifically, investigating the intricacies of identification and the design of robust and efficient estimators for this framework has remained largely unexplored. This work aims to address these gaps in the literature. From the identification standpoint, we present outcome regression and weighting methods to identify the average treatment effect on the treated in both panel data and repeated cross-section settings. For the latter, we relax the commonly made assumption of time-invariant composition of units. From the estimation perspective, we develop semiparametric estimators for the triple difference framework in both panel data and repeated cross-sections settings. These estimators are based on the cross-fitting technique, and flexible machine learning tools can be used to estimate the nuisance components. We characterize conditions under which our proposed estimators are efficient, doubly robust, root-n consistent and asymptotically normal. As an application of our proposed methodology, we examined the effect of mandated maternity benefits on the hourly wages of women of childbearing age and found that these mandates result in a 2.6% drop in hourly wages.</p>
 </div>
 
 <div class="paper-big-message">
@@ -78,20 +78,18 @@ description: "In this work, we revisit triple-difference designs from a semipara
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Identification</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Informal result</span>
-        
-        <p>We give identifying formulas and semiparametrically motivated estimators for triple-difference effects in both panel data and repeated cross-sections.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We give both outcome-regression and weighting identification formulas for the ATT in panel data and repeated cross-sections. In the repeated cross-section setting, identification does not require the usual time-invariant composition of sampled units.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Semiparametric guarantees</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Why this is new</span>
-        
-        <p>In the repeated-cross-section case, we allow covariate composition to change over time. That removes a common restriction that often makes empirical triple-difference analyses harder to justify.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We derive cross-fitted influence-function estimators and characterize conditions under which they are efficient, doubly robust, root-n consistent, and asymptotically normal while allowing flexible machine-learning estimation of nuisance functions.</p>
       </div>
     </div>
 
@@ -107,26 +105,27 @@ description: "In this work, we revisit triple-difference designs from a semipara
   </div>
 </div>
 
-<h2>What the experiments show</h2>
+<h2>What the simulations and application show</h2>
+
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The simulations show that the proposed estimators behave well even when nuisance functions are learned flexibly. The repeated-cross-section analysis highlights that allowing changing composition is not just a technical detail; it can matter in practice.</p>
+  <p>The simulations confirm the double-robustness pattern predicted by the theory: when either the outcome-regression functions or the propensity scores are correctly specified, relative bias moves toward zero as sample size grows; when both nuisance components are misspecified, the bias persists. The repeated cross-section estimator shows the same pattern, with greater sampling variability because each observation contains only one outcome. In the CPS application, our estimator gives a point estimate of −0.02633 for log hourly wages, corresponding to an estimated 2.6% wage reduction associated with mandated maternity benefits.</p>
 </div>
 
 <div class="paper-stat-grid">
-<div class="paper-stat"><strong>bias → 0</strong><span>when at least one nuisance side is correct</span></div>
-<div class="paper-stat"><strong>2 designs</strong><span>panel and repeated cross-section simulations</span></div>
-<div class="paper-stat"><strong>−2.6%</strong><span>estimated wage effect in the application</span></div>
+  <div class="paper-stat"><strong>1,000</strong><span>Monte Carlo replications per sample size</span></div>
+  <div class="paper-stat"><strong>bias → 0</strong><span>when either nuisance side is correct</span></div>
+  <div class="paper-stat"><strong>−2.6%</strong><span>estimated wage effect in the application</span></div>
 </div>
 
 <figure class="paper-figure">
-  <img src="{{ '/papers/semiparametric-triple-difference/figures/relative-bias-panel.png' | relative_url }}" alt="Panel-data simulation figure showing relative bias versus sample size for the proposed estimator under correct specification, propensity-score misspecification, outcome-regression misspecification, and both misspecified.">
-  <figcaption>Panel-data simulation (Figure 1 in the paper). The key visual is the same kind of simulation evidence as in the IV poster: if either the outcome-regression or propensity-score side is specified correctly, the estimator's relative bias shrinks toward zero as sample size grows; when both are misspecified, the bias stays away from zero.</figcaption>
+  <img src="{{ '/papers/semiparametric-triple-difference/figures/relative-bias-panel.png' | relative_url }}" alt="Panel-data simulation showing relative bias versus sample size under four nuisance-specification regimes.">
+  <figcaption>Figure 1 from the paper. In the panel-data setting, relative bias approaches zero when at least one nuisance-modeling side is correctly specified, illustrating the estimator's double robustness.</figcaption>
 </figure>
 
 <figure class="paper-figure">
-  <img src="{{ '/papers/semiparametric-triple-difference/figures/relative-bias-repeated-cross-sections.png' | relative_url }}" alt="Repeated-cross-sections simulation figure showing relative bias versus sample size for the proposed estimator under several nuisance-specification regimes.">
-  <figcaption>Repeated-cross-sections simulation (Figure 2 in the paper). The same double-robust pattern appears here as well, but with visibly higher variability than in the panel-data case because each sampled unit contributes only one outcome measurement.</figcaption>
+  <img src="{{ '/papers/semiparametric-triple-difference/figures/relative-bias-repeated-cross-sections.png' | relative_url }}" alt="Repeated-cross-section simulation showing relative bias versus sample size under four nuisance-specification regimes.">
+  <figcaption>Figure 2 from the paper. The repeated cross-section estimator displays the same double-robust pattern, with greater finite-sample variability than its panel-data counterpart.</figcaption>
 </figure>
 
 <div class="paper-poster">
@@ -144,8 +143,8 @@ description: "In this work, we revisit triple-difference designs from a semipara
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The auxiliary domain still needs to be substantively credible; triple differences do not create identification from nothing.</li>
-        <li>The repeated-cross-section extension broadens scope, but it does not remove the need to think carefully about design and overlap.</li>
+        <li>The framework covers both panel data and repeated cross-sections, with identification and semiparametric estimation tailored to each sampling design.</li>
+        <li>For repeated cross-sections, the method explicitly accommodates compositional changes over time rather than requiring a time-invariant sampled population.</li>
       </ul>
     </div>
   </div>

@@ -41,21 +41,21 @@ description: "We study how to make constraint-based causal discovery more scalab
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Causal discovery gets brittle and expensive when conditional-independence tests use large conditioning sets. The removable-variable view shrinks the graph one variable at a time, cutting both the number and size of those tests. The framework nearly matches worst-case lower bounds and is implemented in the RCD Python package.</p>
+    <p>Recursive causal discovery repeatedly identifies a removable variable, learns its local structure, removes it, and solves a smaller problem. We unify four recursive algorithms—MARVEL, L-MARVEL, RSL, and ROL—show that their worst-case complexity nearly matches lower bounds for constraint-based discovery, and release them in the RCD Python package.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It makes constraint-based discovery more scalable and less statistically fragile by keeping conditional-independence tests local. The same framework also unifies several recursive discovery algorithms in one package.</p>
+    <p>Recursion attacks two bottlenecks at once: it reduces the total number of conditional-independence tests and keeps conditioning sets smaller as the graph shrinks. The result is a unified causal-discovery toolkit with both theoretical efficiency and a practical implementation.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Causal discovery from observational data, i.e., learning the causal graph from a finite set of samples from the joint distribution of the variables, is often the first step toward the identification and estimation of causal effects, a key requirement in numerous scientific domains. Causal discovery is hampered by two main challenges: limited data results in errors in statistical testing and the computational complexity of the learning task is daunting. This paper builds upon and extends four of our prior publications (Mokhtarian et al., 2021; Akbari et al., 2021; Mokhtarian et al., 2022, 2023a). These works introduced the concept of removable variables, which are the only variables that can be removed recursively for the purpose of causal discovery. Presence and identification of removable variables allow recursive approaches for causal discovery, a promising solution that helps to address the aforementioned challenges by reducing the problem size successively. This reduction not only minimizes conditioning sets in each conditional independence (CI) test, leading to fewer errors but also significantly decreases the number of required CI tests. The worst-case performances of these methods nearly match the lower bound. In this paper, we present a unified framework for the proposed algorithms, refined with additional details and enhancements for a coherent presentation. A comprehensive literature review is also included, comparing the computational complexity of our methods with existing approaches, showcasing their state-of-the-art efficiency. Another contribution of this paper is the release of RCD, a Python package that efficiently implements these algorithms. This package is designed for practitioners and researchers interested in applying these methods in practical scenarios. The package is available at github.com/ban-epfl/rcd, with comprehensive documentation provided at rcdpackage.com.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> We show that recursive structure can make causal discovery both faster and more stable. Local information can be enough to shrink a hard global problem into manageable pieces.
+  <strong>Main message.</strong> A hard global causal-discovery problem can be decomposed into a sequence of smaller local problems, with complexity that comes close to the theoretical limits of constraint-based methods.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study how to make constraint-based causal discovery more scalab
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Recursive discovery framework</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We provide a recursive causal-discovery procedure that uses local tests to simplify a global structure-learning task.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We formalize removable variables and removable orders, characterize when variables can be safely eliminated, and show how recursive removal supports causal discovery in both DAG and latent-variable settings.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Near-optimal complexity</h3>
       <div class="paper-result">
-        <span class="paper-result-label">What improves</span>
-        
-        <p>The algorithm reduces the burden of large conditioning sets and often improves both speed and empirical robustness relative to more monolithic search procedures.</p>
+        <span class="paper-result-label">Theory + software</span>
+        <p>We derive worst-case complexity bounds for the recursive algorithms and lower bounds for constraint-based causal discovery, with the proposed methods nearly matching those limits. We also provide the open-source RCD package implementing MARVEL, L-MARVEL, RSL, and ROL.</p>
       </div>
     </div>
 
@@ -110,7 +108,7 @@ description: "We study how to make constraint-based causal discovery more scalab
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The empirical results show that the recursive strategy scales well and remains competitive or better when graphs become large. The main gain is not cosmetic: smaller local problems really do translate into a more reliable learning pipeline.</p>
+  <p>Across linear and nonlinear synthetic models and a collection of real-world Bayesian-network structures, the recursive algorithms reduce process time substantially while remaining highly accurate. The benchmarks also show that the methods scale to graph sizes that are difficult for standard constraint-based baselines.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We study how to make constraint-based causal discovery more scalab
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>As with any constraint-based method, performance still depends on the quality of the underlying conditional-independence tests.</li>
-<li>The recursive logic is most compelling when the graph admits variables that are locally easy to certify and remove.</li>
+        <li>RCD is a unified framework rather than a single algorithm: different recursive variants cover DAGs, latent-variable settings, and permutation-based discovery.</li>
+        <li>The package provides a practical implementation of the theory, with documentation and reusable Python code for large-scale experiments.</li>
       </ul>
     </div>
   </div>

@@ -41,21 +41,21 @@ description: "We introduce a triple-changes estimator for targeted policies, ble
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Triple differences relax parallel trends, while changes-in-changes recovers an entire counterfactual distribution rather than just a mean. We combine the two into a triple-changes estimator and extend it to multivariate outcomes using optimal transport. The method is illustrated on Medicaid expansion and children&#x27;s preventive care.</p>
+    <p>Triple changes combines the third comparison dimension of triple differences with the distributional identification of changes-in-changes. The result identifies an entire counterfactual outcome distribution rather than only an average effect and remains useful in nonlinear settings where mean-based triple differences can be biased.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It moves policy evaluation beyond average effects to entire counterfactual distributions. The optimal-transport extension also opens the door to multivariate outcomes rather than a single scalar response.</p>
+    <p>For targeted policies, the scientifically interesting effect may be distributional rather than just an average. Triple changes expands the changes-in-changes paradigm to a richer three-way design while retaining scale invariance.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>The renowned difference-in-differences (DiD) estimator relies on the assumption of ‘parallel trends,’ which may not hold in many practical applications. To address this issue, economists are increasingly considering the triple difference estimator as a more credible alternative. Both DiD and triple difference are limited to assessing average effects exclusively. An alternative avenue is offered by the changes-in-changes (CiC) estimator, which provides an estimate of the entire counterfactual distribution by relying on assumptions imposed on the distribution of potential outcomes. In this work, we extend the triple difference estimator to accommodate the CiC framework, presenting the ‘triple changes estimator’ and its identification assumptions, thereby expanding the scope of the CiC paradigm. Subsequently, we empirically evaluate the proposed framework and apply it to a study examining the impact of Medicaid expansion on children’s preventive care.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> We extend policy evaluation from average effects to richer distributional comparisons, without giving up the design-based intuition that makes difference methods useful.
+  <strong>Main message.</strong> Triple changes extends triple differences from average effects to counterfactual distributions, making a three-way policy design useful for richer and nonlinear treatment effects.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We introduce a triple-changes estimator for targeted policies, ble
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Distributional identification</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We propose the triple-changes estimator and establish identification of policy effects at the distributional level for targeted interventions.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We introduce the triple changes estimator and derive identification assumptions for the counterfactual outcome distribution of the treated group. The construction combines the extra comparison dimension of triple differences with the monotone-transport logic of changes-in-changes.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Beyond average effects</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Why it matters</span>
-        
-        <p>The method lets us ask who gains, who loses, and how the full outcome distribution shifts—not just what happens on average.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>Because the method identifies a counterfactual distribution, it supports distributional treatment-effect questions rather than only a mean ATT. The paper also develops partial-identification results when the point-identification conditions are relaxed.</p>
       </div>
     </div>
 
@@ -107,10 +105,10 @@ description: "We introduce a triple-changes estimator for targeted policies, ble
   </div>
 </div>
 
-<h2>What the experiments show</h2>
+<h2>What the simulations and application show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The numerical results show that the estimator can recover the shape of policy effects, not only their mean. This is exactly where the method stands out relative to simpler difference-based designs.</p>
+  <p>In the baseline simulations, the biases of triple difference and triple changes approach zero while DiD and CiC retain persistent bias. Under the nonlinear data-generating process, triple difference becomes biased whereas triple changes remains asymptotically unbiased. In the Medicaid application, the triple changes estimate suggests that Louisiana’s expansion increased children’s likelihood of an annual preventive-care visit relative to non-expansion states.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We introduce a triple-changes estimator for targeted policies, ble
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The strength of the method is in the richer estimand, so its payoff is largest when distributional effects matter scientifically.</li>
-<li>As with related design-based methods, the credibility of the comparison groups remains central.</li>
+        <li>Triple changes is designed for targeted-policy settings where a third comparison dimension is scientifically meaningful.</li>
+        <li>Because the estimand is distributional, the framework can study changes that would be hidden by a purely average-effect analysis.</li>
       </ul>
     </div>
   </div>

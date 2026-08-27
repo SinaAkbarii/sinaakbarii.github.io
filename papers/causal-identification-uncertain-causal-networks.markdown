@@ -41,21 +41,21 @@ description: "We study causal effect identification when the underlying graph is
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Causal identification usually assumes the graph is known exactly. Here each edge can be uncertain, and the task is to find the most plausible subgraph in which the target effect is identifiable. That optimization is NP-hard, so we develop efficient approximations and test them on synthetic and real networks.</p>
+    <p>When the causal graph itself is uncertain, we ask for the most plausible subgraph in which a target effect becomes identifiable. We formulate this as the NP-complete edge-ID problem and develop exact and heuristic algorithms that trade graph plausibility against identifiability.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>Real causal graphs are rarely known with certainty. This work lets identification account for uncertain edges explicitly instead of pretending that one estimated graph is unquestionably correct.</p>
+    <p>Causal graphs often come with confidence scores rather than certainty. This framework lets us use that uncertainty directly instead of forcing a single graph, producing an explicit “most plausible identifiable” causal model.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Causal identification is at the core of the causal inference literature, where complete algorithms have been proposed to identify causal queries of interest. The validity of these algorithms hinges on the restrictive assumption of having access to a correctly specified causal structure. In this work, we study the setting where a probabilistic model of the causal structure is available. Specifically, the edges in a causal graph exist with uncertainties which may, for example, represent degree of belief from domain experts. Alternatively, the uncertainty about an edge may reflect the confidence of a particular statistical test. The question that naturally arises in this setting is: Given such a probabilistic graph and a specific causal effect of interest, what is the subgraph which has the highest plausibility and for which the causal effect is identifiable? We show that answering this question reduces to solving an NP-complete combinatorial optimization problem which we call the edge ID problem. We propose efficient algorithms to approximate this problem and evaluate them against both real-world networks and randomly generated graphs.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Real causal graphs are rarely known with certainty. We ask what can still be identified when the graph itself is uncertain, and we give algorithmic tools for that regime.
+  <strong>Main message.</strong> Rather than pretending the causal graph is known exactly, we optimize over structural uncertainty and recover the most plausible graph that is sufficient for identification.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study causal effect identification when the underlying graph is
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. The edge-ID problem</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We develop methods for causal-effect identification in uncertain causal networks, where the graph itself is part of the inferential problem.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We formulate the search for the most plausible identifiable subgraph as a combinatorial optimization problem and prove that edge ID is NP-complete.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Exact and fast approximate solvers</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical meaning</span>
-        
-        <p>The paper moves identification theory closer to scientific reality by allowing structural uncertainty instead of pretending it away.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We derive an exact edge-ID algorithm, two fast heuristics, and polynomial-time reductions between edge ID and minimum-cost intervention design. This makes it possible to leverage both graph-specific methods and existing causal-design solvers.</p>
       </div>
     </div>
 
@@ -110,7 +108,7 @@ description: "We study causal effect identification when the underlying graph is
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that robust identification under graph uncertainty is computationally feasible in nontrivial settings. They also illustrate how much certainty can be lost when a few edges are left ambiguous.</p>
+  <p>On randomly generated graphs, HEID-1 and HEID-2 have negligible runtimes and return costs close to the exact optimum, while exact methods become much more variable as graphs grow. On four real-world network structures, the heuristic methods remain extremely fast and often match the optimal cost whenever the exact solvers finish within the runtime limit.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We study causal effect identification when the underlying graph is
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The benefit comes from explicitly modeling uncertainty, so the uncertainty set itself should be scientifically meaningful.</li>
-<li>Robustness can be conservative, but that conservatism reflects real ambiguity rather than algorithmic caution.</li>
+        <li>Edge probabilities can encode expert belief or confidence from statistical structure-learning procedures.</li>
+        <li>The framework includes both exact and heuristic solvers, allowing users to choose between guaranteed optimality and near-instant practical solutions.</li>
       </ul>
     </div>
   </div>

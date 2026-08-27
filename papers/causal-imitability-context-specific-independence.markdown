@@ -41,21 +41,21 @@ description: "We study imitation under hidden causal structure and show how cont
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Imitation can fail when hidden causal structure makes the expert&#x27;s behavior impossible to reproduce from observed data. Known context-specific independences can change that answer. We characterize when they help, show the general feasibility problem is NP-hard, and give a sound algorithm that uses both CSI information and data.</p>
+    <p>Context-specific independences can make expert behavior causally imitable even when classical causal imitation says it is impossible. We characterize this richer decision problem, prove it is NP-hard, derive a graphical criterion, and give a sound algorithm that combines CSI relations with observed data.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>Context-specific knowledge can turn an impossible imitation problem into a solvable one. It shows that causal structure can matter even when the extra independence information only holds in particular contexts.</p>
+    <p>A small amount of structural information that only holds in particular contexts can unlock imitation that is otherwise impossible under hidden confounding. This shows that fine-grained causal knowledge can be operationally valuable for imitation learning.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Drawbacks of ignoring the causal mechanisms when performing imitation learning have recently been acknowledged. Several approaches both to assess the feasibility of imitation and to circumvent causal confounding and causal misspecifications have been proposed in the literature. However, the potential benefits of the incorporation of additional information about the underlying causal structure are left unexplored. An example of such overlooked information is context-specific independence (CSI), i.e., independence that holds only in certain contexts. We consider the problem of causal imitation learning when CSI relations are known. We prove that the decision problem pertaining to the feasibility of imitation in this setting is NP-hard. Further, we provide a necessary graphical criterion for imitation learning under CSI and show that under a structural assumption, this criterion is also sufficient. Finally, we propose a sound algorithmic approach for causal imitation learning which takes both CSI relations and data into account.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> The question is not just how to imitate an expert, but whether imitation is causally possible at all. We show that context-specific structure can make the impossible possible.
+  <strong>Main message.</strong> Context-specific causal structure can turn non-imitable expert behavior into an imitable policy—and we give both theory and an algorithm for exploiting it.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study imitation under hidden causal structure and show how cont
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Improvability through CSI</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We characterize causal imitability under context-specific independence assumptions and show how these assumptions can rescue identifiability of the target behavior.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We prove that deciding imitability under context-specific independences is NP-hard, give a necessary graphical criterion, and show that the criterion becomes sufficient under a structural condition on the context variables.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. A sound imitation algorithm</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Why it matters</span>
-        
-        <p>The paper shows that structural knowledge can turn an impossible imitation problem into a solvable one.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We develop a sound algorithm that combines CSI relations with observational data to construct an imitating policy when the required causal quantities can be recovered.</p>
       </div>
     </div>
 
@@ -110,7 +108,7 @@ description: "We study imitation under hidden causal structure and show how cont
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that exploiting context-specific structure can change performance qualitatively, not just incrementally. In the right settings, it unlocks imitation altogether.</p>
+  <p>The simulations show that even a handful of CSI relations can materially enlarge the set of imitable problems: using only three context variables among graphs with up to hundreds of vertices substantially increases the fraction of imitable instances. In the policy experiment, the proposed algorithm matches the expert in expected reward and reward-distribution KL divergence, while the naive imitation baselines do not.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We study imitation under hidden causal structure and show how cont
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The assumptions are richer than standard ones, so they are most persuasive when supported by domain knowledge.</li>
-<li>The gain is conceptual as much as algorithmic: the paper clarifies when imitation is possible in principle.</li>
+        <li>CSI relations enrich the causal information available to imitation learning without requiring a fully observed causal system.</li>
+        <li>The method combines structural information and data, so the extra causal knowledge directly changes which expert policies can be reproduced.</li>
       </ul>
     </div>
   </div>

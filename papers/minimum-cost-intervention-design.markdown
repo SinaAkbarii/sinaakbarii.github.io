@@ -41,21 +41,21 @@ description: "We study how to identify a causal effect at minimum experimental c
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>When observational data cannot identify the effect you want, the next question is: what is the cheapest experiment that will? We connect minimum-cost intervention design to the minimum hitting-set problem and give exact, approximation, and polynomial-time heuristic algorithms. The heuristics achieve low regret on random causal graphs.</p>
+    <p>When a target causal effect is not identifiable from observations alone, we design the cheapest set of permitted interventions that makes it identifiable. We prove the problem is NP-hard, connect it to minimum hitting set, and give exact, logarithmic-approximation, and polynomial-time heuristic algorithms.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It gives a principled answer to which experiments are worth paying for when observational data are insufficient. The connection to hitting set brings both hardness results and practical optimization tools.</p>
+    <p>This turns causal-effect identification into an experiment-planning problem with a real cost objective. The output is not just a statement that more experiments are needed, but a concrete low-cost intervention plan.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Pearl’s do calculus is a complete axiomatic approach to learn the identifiable causal effects from observational data. When such an effect is not identifiable, it is necessary to perform a collection of often costly interventions in the system to learn the causal effect. In this work, we consider the problem of designing the collection of interventions with the minimum cost to identify the desired effect. First, we prove that this problem is NP-hard and subsequently propose an algorithm that can either find the optimal solution or a logarithmic-factor approximation of it. This is done by establishing a connection between our problem and the minimum hitting set problem. Additionally, we propose several polynomial time heuristic algorithms to tackle the computational complexity of the problem. Although these algorithms could potentially stumble on sub-optimal solutions, our simulations show that they achieve small regrets on random graphs.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> This paper turns causal identifiability into an optimization problem that speaks directly to practice: which experiments are worth paying for, and which are not?
+  <strong>Main message.</strong> Causal identifiability becomes an actionable design problem: find the least expensive interventions that unlock the target effect.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study how to identify a causal effect at minimum experimental c
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Complexity of minimum-cost identification</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We derive a principled framework and algorithms for minimum-cost intervention design for causal effect identification.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We prove that the minimum-cost intervention-design problem is NP-hard and connect its combinatorial structure to minimum hitting set.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Exact, approximate, and heuristic solvers</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical meaning</span>
-        
-        <p>The output is an actionable experimental plan: the cheapest set of manipulations that identifies the effect of interest.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>The hitting-set formulation yields an algorithm that can recover the optimum or a logarithmic-factor approximation. We also develop polynomial-time heuristics for settings where a very fast design is preferred.</p>
       </div>
     </div>
 
@@ -107,10 +105,10 @@ description: "We study how to identify a causal effect at minimum experimental c
   </div>
 </div>
 
-<h2>What the experiments show</h2>
+<h2>What the simulations show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that cost-aware design can reduce experimental burden substantially relative to more naive choices. That is exactly why the paper resonates beyond identifiability theory.</p>
+  <p>On randomly generated causal graphs, the polynomial-time heuristics achieve low regret relative to the optimal intervention cost. The experiments show that useful near-optimal designs can be obtained without solving the full combinatorial problem exactly.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We study how to identify a causal effect at minimum experimental c
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The intervention-cost model should reflect the application; that is a feature rather than a bug.</li>
-<li>The method is strongest when intervention feasibility and price vary widely across nodes.</li>
+        <li>The design objective supports variable-specific intervention costs and can respect interventions that are unavailable or prohibited.</li>
+        <li>The method targets one causal query directly, avoiding the extra cost of designing experiments to identify every possible effect in the graph.</li>
       </ul>
     </div>
   </div>

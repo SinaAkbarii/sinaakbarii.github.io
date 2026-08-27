@@ -51,7 +51,7 @@ description: "We combine known causal graph structure with neural prediction arc
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Artificial Neural Networks (ANNs), including fully-connected networks and transformers, are highly flexible and powerful function approximators, widely applied in fields like computer vision and natural language processing. However, their inability to inherently respect causal structures can limit their robustness, making them vulnerable to covariate shift and difficult to interpret/explain. This poses significant challenges for their reliability in real-world applications. In this paper, we introduce Causal Transformers (CaTs), a general model class designed to operate under predefined causal constraints, as specified by a Directed Acyclic Graph (DAG). CaTs retain the powerful function approximation abilities of traditional neural networks while adhering to the underlying structural constraints, improving robustness, reliability, and interpretability at inference time. This approach opens new avenues for deploying neural networks in more demanding, real-world scenarios where robustness and explainability is critical.</p>
 </div>
 
 <div class="paper-big-message">
@@ -78,20 +78,18 @@ description: "We combine known causal graph structure with neural prediction arc
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Structural guarantee</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We introduce CaTs, a family of neural architectures that integrate DAG structure into transformers and fully connected networks for causally constrained prediction.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We prove that the CaT predictive distribution factorizes according to the supplied DAG. The same masked architecture implements the truncated factorization used by the g-formula, so intervention queries identified by the DAG can be computed directly through the network.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Robustness guarantee</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Empirical message</span>
-        
-        <p>When the causal structure is informative, respecting it can improve robustness and out-of-distribution behavior relative to unconstrained baselines.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We prove structural robustness to covariate shift: when the causal mechanisms are shared across domains, shifts in variables that are not ancestors of the target do not change the CaT predictor. The corresponding identified causal queries are transportable in the large-sample limit.</p>
       </div>
     </div>
 
@@ -108,30 +106,26 @@ description: "We combine known causal graph structure with neural prediction arc
 </div>
 
 <h2>What the experiments show</h2>
+
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that adding causal structure can materially improve predictive behavior under interventions and shift. The value is not only accuracy but also consistency with the causal mechanisms we intended the model to respect.</p>
+  <p>The experiments make the value of structural constraints visible. In the motivating simulation, the true-DAG CaT attains an ATE estimation error of 0.058 versus 2.379 for a standard transformer, and CaT/CFCN remain stable under the induced covariate shift while unconstrained baselines deteriorate sharply. On the Twins and Jobs benchmarks, CaT and CFCN remain competitive with methods specialized for causal inference, and the real psychology application shows that CaT can work directly with the full multidimensional questionnaire representation.</p>
 </div>
 
 <div class="paper-stat-grid">
-<div class="paper-stat"><strong>0.058</strong><span>eATE for the true-DAG CaT</span></div>
-<div class="paper-stat"><strong>2.379</strong><span>eATE for the standard transformer</span></div>
-<div class="paper-stat"><strong>895</strong><span>participants in the real psychology application</span></div>
+  <div class="paper-stat"><strong>0.058</strong><span>eATE for true-DAG CaT</span></div>
+  <div class="paper-stat"><strong>2.379</strong><span>eATE for a standard transformer</span></div>
+  <div class="paper-stat"><strong>895</strong><span>participants in the psychology application</span></div>
 </div>
 
 <figure class="paper-figure">
-  <img src="{{ '/papers/cats-and-dags/figures/shift-robustness.png' | relative_url }}" alt="Figure comparing test mean squared error under no shift and shift for causal and non-causal models.">
-  <figcaption>Figure 1 of the paper. This motivating example makes the main point visually explicit: under covariate shift, the standard transformer, MLP, and random forest degrade sharply, while CaT and CFCN stay much more stable because their information flow is constrained by the causal graph.</figcaption>
+  <img src="{{ '/papers/cats-and-dags/figures/shift-robustness.png' | relative_url }}" alt="Test mean squared error under no shift and covariate shift for causal and non-causal models.">
+  <figcaption>Figure 1 from the paper. CaT and CFCN remain stable under the induced shift, while the unconstrained transformer, MLP, and random forest incur much larger test error.</figcaption>
 </figure>
 
 <figure class="paper-figure">
-  <img src="{{ '/papers/cats-and-dags/figures/absolute-ate-error.png' | relative_url }}" alt="Figure showing absolute ATE error across different models and graph specifications.">
-  <figcaption>Figure 6 from the supplementary material. This plot shows that the true-DAG CaT has much smaller causal-effect error than the unconstrained baselines and the false-DAG variants.</figcaption>
-</figure>
-
-<figure class="paper-figure">
-  <img src="{{ '/papers/cats-and-dags/figures/mse-different-models.png' | relative_url }}" alt="Figure showing mean squared error across different models and graph specifications.">
-  <figcaption>Figure 7 from the supplementary material. This second plot makes the trade-off explicit: the model with the best causal-effect estimation is not the one with the best ordinary predictive MSE.</figcaption>
+  <img src="{{ '/papers/cats-and-dags/figures/absolute-ate-error.png' | relative_url }}" alt="Absolute ATE estimation error across different models and graph specifications.">
+  <figcaption>Figure 6 from the supplementary material. The true-DAG CaT and CFCN achieve much smaller ATE estimation error than the false-DAG variants and unconstrained baselines.</figcaption>
 </figure>
 
 <div class="paper-poster">
@@ -148,8 +142,8 @@ description: "We combine known causal graph structure with neural prediction arc
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The approach is strongest when the supplied DAG is meaningful; a poor graph can encode the wrong inductive bias.</li>
-        <li>This is not causal discovery. It is a way to do prediction under known causal constraints.</li>
+        <li>CaT is designed for settings where structural knowledge is available and can be used both for robust prediction and for causal queries identified by the supplied DAG.</li>
+        <li>The same masking principle also gives CFCNs, showing that the structural idea is broader than the transformer architecture itself.</li>
       </ul>
     </div>
   </div>

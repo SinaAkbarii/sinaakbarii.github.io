@@ -41,21 +41,21 @@ description: "We empirically examine whether influence-function corrections reli
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Influence-function corrections can improve flexible machine-learning estimates of the average treatment effect, but there is no universal free lunch. Across datasets, the gains depend on the estimator, sample size, and data-generating process. The practical message is to stress-test conclusions across multiple estimation pipelines.</p>
+    <p>We run a broad empirical evaluation of semiparametric average-treatment-effect estimators, including neural-network nuisance models and influence-function updates. We also introduce MultiNet and MultiStep. The central finding is that no single update dominates everywhere, but several combinations are consistently strong and MultiNet performs particularly well in a number of evaluations.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It is a practical warning against treating influence-function updates as a plug-and-play guarantee. The benefit depends on the estimator, sample size, and data-generating process.</p>
+    <p>Causal estimators are often deployed without access to ground truth. A large controlled benchmark therefore provides practical evidence about which semiparametric pipelines are stable across datasets, sample sizes, and data-generating mechanisms—and where new methods such as MultiNet help.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>The applications of causal inference may be life-critical, including the evaluation of vaccinations, medicine, and social policy. However, when undertaking estimation for causal inference, practitioners rarely have access to what might be called ‘ground-truth’ in a supervised learning setting, meaning the chosen estimation methods cannot be evaluated and must be assumed to be reliable. It is therefore crucial that we have a good understanding of the performance consistency of typical methods available to practitioners. In this work we provide a comprehensive evaluation of recent semiparametric methods (including neural network approaches) for average treatment effect estimation. Such methods have been proposed as a means to derive unbiased causal effect estimates and statistically valid confidence intervals, even when using otherwise non-parametric, data-adaptive machine learning techniques. We also propose a new estimator ‘MultiNet’, and a variation on the semiparametric update step ‘MultiStep’, which we evaluate alongside existing approaches. The performance of both semiparametric and ‘regular’ methods are found to be dataset dependent, indicating an interaction between the methods used, the sample size, and nature of the data generating process. Our experiments highlight the need for practitioners to check the consistency of their findings, potentially by undertaking multiple analyses with different combinations of estimators.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Influence functions are powerful, but they are not magic. We show when they help, when they plateau, and when blindly adding them can disappoint.
+  <strong>Main message.</strong> This paper is an empirical map of modern semiparametric ATE estimation: which combinations work well, how performance changes with the dataset and sample size, and which new neural estimators are especially promising.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We empirically examine whether influence-function corrections reli
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. MultiNet and MultiStep</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Takeaway</span>
-        
-        <p>We find that influence-function corrections can substantially improve flexible estimators of the average treatment effect, but the improvement is uneven across settings.</p>
+        <span class="paper-result-label">Method contribution</span>
+        <p>We introduce MultiNet, a neural pseudo-ensemble outcome estimator, and MultiStep, a variation on the semiparametric update step, and evaluate them alongside established semiparametric and non-semiparametric estimators.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. What drives performance</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Why it matters</span>
-        
-        <p>The paper gives a practical warning: semiparametric tools should be deployed thoughtfully, with attention to the nuisance-learning regime rather than by default.</p>
+        <span class="paper-result-label">Empirical finding</span>
+        <p>Across the benchmark, estimator performance depends strongly on the interaction between method choice, sample size, and the data-generating process. MultiNet is among the strongest outcome models in several evaluations and performs particularly well in smaller-sample settings.</p>
       </div>
     </div>
 
@@ -110,7 +108,7 @@ description: "We empirically examine whether influence-function corrections reli
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that influence-function corrections often help, but not uniformly. The key message is practical: good nuisance learning and design conditions matter just as much as the correction itself.</p>
+  <p>The large benchmark shows that the best-performing pipeline changes across datasets and sample sizes, so robustness is better assessed across several competitive estimators than through a single default recipe. MultiNet achieves state-of-the-art performance on a number of evaluations, while the Shapley analyses make sample size and dataset structure two of the strongest predictors of estimator behavior.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We empirically examine whether influence-function corrections reli
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The paper is intentionally empirical, so the value is in the practical comparison rather than in a new universal theorem.</li>
-<li>A correction that is asymptotically appealing can still be underwhelming if the nuisance stage is poor.</li>
+        <li>The paper compares outcome models, propensity models, and update steps as a full estimation pipeline rather than evaluating each component in isolation.</li>
+        <li>MultiNet and MultiStep are provided as concrete new options within a benchmark designed to help practitioners choose stable semiparametric estimators.</li>
       </ul>
     </div>
   </div>

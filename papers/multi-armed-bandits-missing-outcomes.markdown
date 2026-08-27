@@ -41,21 +41,21 @@ description: "We study stochastic bandits when rewards may be missing rather tha
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Missing rewards are not harmless in bandits: ignoring why outcomes disappear can drive regret to linear. We develop algorithms for both missing-at-random and missing-not-at-random feedback and show how the missingness mechanism changes achievable regret. Accounting for it gives much better decision-making guarantees.</p>
+    <p>Missing rewards can fundamentally change a multi-armed-bandit problem. We analyze regret under missing completely at random, missing at random, and missing not at random mechanisms, show how naive reward estimates can lead to linear regret, and design UCB-style algorithms that explicitly correct for the observation process.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>Missing feedback can fundamentally break bandit learning, not just make it noisier. Modeling the missingness mechanism restores meaningful regret guarantees in settings closer to real decision systems.</p>
+    <p>Real feedback is often selectively missing—in clinical trials, recommendation systems, advertising, and other online decisions. The paper provides a principled way to keep learning when the rewards we fail to observe are not a representative sample of the rewards that actually occurred.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>While significant progress has been made in designing algorithms that minimize regret in online decision-making, real-world scenarios often introduce additional complexities, with missing outcomes perhaps among the most challenging ones. Overlooking this aspect or simply assuming random missingness invariably leads to biased estimates of the rewards and may result in linear regret. Despite the practical relevance of this challenge, no rigorous methodology currently exists for systematically handling missingness, especially when the missingness mechanism is not random. In this paper, we address this gap in the context of multi-armed bandits (MAB) with missing outcomes by analyzing the impact of different missingness mechanisms on achievable regret bounds. We introduce algorithms that account for missingness under both missing at random (MAR) and missing not at random (MNAR) models. Through both analytical and simulation studies, we demonstrate the drastic improvements in decision-making by accounting for missingness in these settings.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Missing outcomes are not just a bookkeeping issue. They can change what is learnable and how regret grows.
+  <strong>Main message.</strong> Missing outcomes are part of the decision problem, not a preprocessing nuisance. Modeling the observation mechanism restores unbiased reward learning and dramatically improves regret.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study stochastic bandits when rewards may be missing rather tha
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Missingness changes regret</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We characterize how different missing-outcome mechanisms affect the exploration–exploitation trade-off and derive algorithms with regret guarantees tailored to those settings.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We characterize how different missingness mechanisms alter reward estimation and achievable regret. In particular, ignoring outcome-dependent missingness can bias estimated rewards enough to produce linear regret.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Missingness-aware bandit algorithms</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical meaning</span>
-        
-        <p>The paper shows that missing feedback can fundamentally break standard bandit intuition, not merely slow learning by a constant factor.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We develop UCB-style algorithms for MCAR, MAR, and MNAR settings. The MAR construction uses an observed mediator to recover unbiased reward information, while the MNAR method handles reward-dependent observation through the additional structure developed in the paper.</p>
       </div>
     </div>
 
@@ -107,10 +105,10 @@ description: "We study stochastic bandits when rewards may be missing rather tha
   </div>
 </div>
 
-<h2>What the experiments show</h2>
+<h2>What the simulations show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that algorithms aware of missingness can substantially outperform ones that pretend all observed rewards are a representative sample. The difference grows when missingness is strongly informative.</p>
+  <p>The simulations mirror the theory. In the MAR environment, standard UCB exhibits near-linear cumulative regret because it ignores the biased observation process, while the missingness-aware MAR algorithm achieves much lower regret. The MNAR algorithm also adapts successfully in reward-dependent missingness settings, and additional mediator information improves performance when available.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We study stochastic bandits when rewards may be missing rather tha
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The exact guarantees depend on the missingness model, so the scientific interpretation of why outcomes disappear remains important.</li>
-<li>Ignoring missingness can be badly misleading, which is precisely why modeling it explicitly matters.</li>
+        <li>The framework covers MCAR, MAR, and MNAR rather than treating all missing feedback as random censoring.</li>
+        <li>The mediator-based formulation gives a concrete way to use auxiliary information to recover useful reward estimates even when missingness depends on the outcome.</li>
       </ul>
     </div>
   </div>

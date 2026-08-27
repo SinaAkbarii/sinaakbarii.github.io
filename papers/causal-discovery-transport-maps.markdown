@@ -41,21 +41,21 @@ description: "We use monotone triangular transport maps as a unifying tool for c
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Monotone triangular transport maps turn distribution fitting into a tool for causal discovery. They give noise-agnostic conditional-independence tests for constraint-based learning and a new score for score-based learning. With stronger model assumptions, the same framework can identify a unique causal graph.</p>
+    <p>Monotone triangular transport maps provide a common engine for both constraint-based and score-based causal discovery. We use them to build noise-agnostic CI tests, recover graphs up to Markov equivalence even with latent variables, and—under additive-noise or post-nonlinear structure—score candidate graphs for unique recovery.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It uses transport maps as a flexible bridge between distribution modeling and causal discovery. The same machinery supports both conditional-independence testing and score-based structure learning beyond simple Gaussian models.</p>
+    <p>Transport maps let causal discovery move beyond Gaussian or narrowly parametric CI tests while keeping one coherent representation of the full data distribution. The same fitted object supports sparsity discovery and stronger model-based orientation.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>We study the problem of causal structure learning from data using transport maps. Specifically, we first provide a constraint-based method which builds upon lower-triangular monotone parametric transport maps to design conditional independence tests which are agnostic to the noise distribution. We provide an algorithm for causal discovery up to Markov Equivalence for general structural equations and noise distributions, which allows for settings with latent variables. Our approach also extends to score-based causal discovery by providing a novel means for defining scores. This allows us to uniquely recover the causal graph under additional identifiability and structural assumptions, such as additive noise or post-nonlinear models. We provide experimental results to compare the proposed approach with the state of the art on both synthetic and real-world datasets.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Transport maps do more than fit distributions. We show that they can be turned into a flexible engine for causal discovery.
+  <strong>Main message.</strong> Transport maps are not only distribution estimators: they provide a unified toolkit for conditional-independence testing, graph recovery, and structural scoring.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We use monotone triangular transport maps as a unifying tool for c
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Noise-agnostic constraint-based discovery</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We show how monotone triangular transport maps can power both constraint-based and score-based causal-discovery procedures.</p>
+        <span class="paper-result-label">Method + theory</span>
+        <p>We use lower-triangular monotone transport maps to construct conditional-independence tests for general continuous distributions and integrate them into a PC-style causal-discovery procedure. The method recovers the graph up to Markov equivalence and can be used in the presence of latent variables.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Unique recovery under structural models</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Why it matters</span>
-        
-        <p>The framework broadens the distributional scope of causal discovery while keeping one coherent mathematical tool at the center.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>For additive-noise and post-nonlinear structural equation models, we derive transport-map characterizations that are necessary and sufficient for membership in these model classes. These characterizations yield scores that can distinguish candidate DAGs within a Markov equivalence class.</p>
       </div>
     </div>
 
@@ -107,10 +105,10 @@ description: "We use monotone triangular transport maps as a unifying tool for c
   </div>
 </div>
 
-<h2>What the experiments show</h2>
+<h2>What the numerical experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that transport-map-based discovery can work beyond the narrow settings in which simpler models are comfortable. The attractive feature is versatility: one tool supports several discovery tasks.</p>
+  <p>In non-Gaussian synthetic experiments, PC-OT outperforms Gaussian-PC and correlation-based Grow-Shrink once the sample size is sufficiently large, reducing both misoriented edges and overall graph loss. In the additive-noise experiment, the transport-based score clearly separates the true causal ordering from the other DAGs in the same Markov equivalence class.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We use monotone triangular transport maps as a unifying tool for c
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The method relies on fitting transport maps well, so computational quality in that stage matters.</li>
-<li>Its appeal is breadth and flexibility rather than dependence on a single narrow model class.</li>
+        <li>The same transport-map fit supports both constraint-based and score-based discovery, so sparsity learning and stronger causal orientation live in one framework.</li>
+        <li>The constraint-based component is designed to be agnostic to the noise distribution, while stronger ANM/PNL structure can be used when available to obtain unique recovery.</li>
       </ul>
     </div>
   </div>

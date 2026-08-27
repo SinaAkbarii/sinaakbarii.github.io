@@ -51,11 +51,11 @@ description: "We study when heterogeneity across environments can identify a cau
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>We investigate the estimation of the causal effect of a treatment variable on an outcome in the presence of a latent confounder. We first show that the causal effect is identifiable under certain conditions when data is available from multiple environments, provided that the target causal effect remains invariant across these environments. Secondly, we propose a moment-based algorithm for estimating the causal effect as long as only a single parameter of the data-generating mechanism varies across environments – whether it be the exogenous noise distribution or the causal relationship between two variables. Conversely, we prove that identifiability is lost if both exogenous noise distributions of both the latent and treatment variables vary across environments. Finally, we propose a procedure to identify which parameter of the data-generating mechanism has varied across the environments and evaluate the performance of our proposed methods through experiments on synthetic data.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Heterogeneity is often treated as a nuisance. We use it as signal. The paper shows that multiple environments can reveal a causal effect through higher-order moment structure.
+  <strong>Main message.</strong> Heterogeneity can be a source of causal identification rather than a nuisance. We use higher-order moments across environments to recover treatment effects hidden by latent confounding and to diagnose which part of the data-generating mechanism changed.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study when heterogeneity across environments can identify a cau
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Identification from one unknown change</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We characterize when higher-order cross-environment information identifies the causal effect uniquely, when it leaves only a small ambiguity, and when the problem remains non-identifiable.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>With two environments and one unknown change in the data-generating mechanism, we can distinguish whether the change is in a structural coefficient or an exogenous-noise distribution. When the changing component is the latent confounder's effect on treatment or outcome, the treatment effect is uniquely identified; for the noise-shift cases, our procedure narrows it to two candidates.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Diagnosing the shift</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical meaning</span>
-        
-        <p>The paper turns multi-environment heterogeneity into an identification resource rather than something to average away.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We give moment-based procedures that identify which component changed across environments and then use the corresponding moment equations to estimate the invariant treatment effect.</p>
       </div>
     </div>
 
@@ -108,25 +106,21 @@ description: "We study when heterogeneity across environments can identify a cau
 </div>
 
 <h2>What the experiments show</h2>
+
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The simulations illustrate the distinct identification regimes very clearly: some settings yield a unique effect, some leave only two candidates, and some remain impossible. That picture helps explain what the higher-order conditions are buying.</p>
+  <p>Across the four single-change scenarios studied in the main experiments, the proposed moment-based algorithms move toward the true treatment effect as sample size increases. In contrast, both separate-domain and pooled linear-regression baselines retain systematic confounding bias. The complementary simulations show the same qualitative behavior across several noise distributions.</p>
 </div>
 
 <div class="paper-stat-grid">
-<div class="paper-stat"><strong>2 environments</strong><span>enough for the core identification results</span></div>
-<div class="paper-stat"><strong>1 unknown change</strong><span>can be diagnosed from higher-order moments</span></div>
-<div class="paper-stat"><strong>bias → 0</strong><span>for the proposed estimators in identifiable regimes</span></div>
+  <div class="paper-stat"><strong>4 scenarios</strong><span>single changes studied in the main simulation</span></div>
+  <div class="paper-stat"><strong>bias → 0</strong><span>for the proposed estimators as samples grow</span></div>
+  <div class="paper-stat"><strong>2 OLS baselines</strong><span>retain systematic bias</span></div>
 </div>
 
 <figure class="paper-figure">
-  <img src="{{ '/papers/heterogeneous-environments-higher-order-moments/figures/relative-bias-four-regimes.png' | relative_url }}" alt="Simulation figure with four subplots showing relative bias across sample sizes for several identification regimes.">
-  <figcaption>Figure 4 of the paper. Across the identifiable regimes, the proposed moment-based procedures move toward the true treatment effect as sample size grows, while separate-domain and pooled linear-regression baselines retain systematic confounding bias.</figcaption>
-</figure>
-
-<figure class="paper-figure">
-  <img src="{{ '/papers/heterogeneous-environments-higher-order-moments/figures/two-domain-graph.png' | relative_url }}" alt="Causal graph for the two-domain latent-confounding setup used in the higher-order-moments paper.">
-  <figcaption>Figure 1 of the paper. I also included the core two-domain causal graph because it helps explain what changes across environments and why higher-order moments can unlock identification in some regimes but not in others.</figcaption>
+  <img src="{{ '/papers/heterogeneous-environments-higher-order-moments/figures/relative-bias-four-regimes.png' | relative_url }}" alt="Four simulation panels showing relative estimation bias across sample sizes for different single-change environments.">
+  <figcaption>Figure 4 from the paper. The proposed algorithms converge toward the true treatment effect across the four identifiable single-change settings, while separate and pooled linear regression remain systematically biased.</figcaption>
 </figure>
 
 <div class="paper-poster">
@@ -143,8 +137,8 @@ description: "We study when heterogeneity across environments can identify a cau
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The method relies on informative cross-environment heterogeneity; if the environments differ too little, the extra moment conditions have little leverage.</li>
-        <li>The contribution is about identification structure, so the payoff is largest when the scientific question justifies a multi-environment view.</li>
+        <li>The core characterization is developed for two environments and extends to larger collections by considering environments in pairs.</li>
+        <li>Observed covariates can be incorporated by regressing treatment and outcome on those covariates and applying the method to the residualized variables.</li>
       </ul>
     </div>
   </div>

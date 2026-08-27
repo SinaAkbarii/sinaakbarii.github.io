@@ -41,21 +41,21 @@ description: "We extend recursive causal structure learning to settings with lat
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Latent variables and selection bias make constraint-based causal discovery especially expensive. We identify removable variables in a MAG, peel them off recursively, and still retain soundness and completeness. This reduces both the number of conditional-independence tests and the size of their conditioning sets, with near-tight worst-case complexity.</p>
+    <p>L-MARVEL extends recursive causal discovery to latent variables and selection bias. We prove the method is sound and complete, derive a strong upper bound on its CI-test complexity together with a general lower bound, and show strong empirical gains on synthetic and real-world structures.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It extends efficient recursive discovery to settings with latent confounding and selection bias. The method keeps soundness and completeness while reducing both the number and size of conditional-independence tests.</p>
+    <p>Latent confounding and selection bias are exactly the settings in which causal discovery becomes much harder. The paper shows that recursive removal still works there and retains both correctness guarantees and near-optimal worst-case efficiency.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>We consider the problem of learning the causal MAG of a system from observational data in the presence of latent variables and selection bias. Constraint-based methods are one of the main approaches for solving this problem, but the existing methods are either computationally impractical when dealing with large graphs or lacking completeness guarantees. We propose a novel computationally efficient recursive constraint-based method that is sound and complete. The key idea of our approach is that at each iteration a specific type of variable is identified and removed. This allows us to learn the structure efficiently and recursively, as this technique reduces both the number of required conditional independence (CI) tests and the size of the conditioning sets. The former substantially reduces the computational complexity, while the latter results in more reliable CI tests. We provide an upper bound on the number of required CI tests in the worst case. To the best of our knowledge, this is the tightest bound in the literature. We further provide a lower bound on the number of CI tests required by any constraint-based method. The upper bound of our proposed approach and the lower bound at most differ by a factor equal to the number of variables in the worst case. We provide experimental results to compare the proposed approach with the state of the art on both synthetic and real-world structures.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Latent confounding and selection bias usually make discovery much harder. We show that recursion still provides a workable organizing principle in that setting.
+  <strong>Main message.</strong> Recursive causal discovery survives the move from DAGs to the much harder latent-variable and selection-bias setting, with soundness, completeness, and strong complexity guarantees.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We extend recursive causal structure learning to settings with lat
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. L-MARVEL is sound and complete</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We develop a recursive causal-structure-learning method for settings with latent variables and selection bias, yielding guarantees in a more realistic discovery regime.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We characterize removable variables in maximal ancestral graphs and use them to construct L-MARVEL, a recursive constraint-based algorithm that is sound and complete in the presence of latent variables and selection bias.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Near-matching complexity bounds</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical meaning</span>
-        
-        <p>The paper extends efficient recursive ideas to situations where confounding and sample-selection issues cannot be ignored.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We derive an upper bound on the number of CI tests required by L-MARVEL and a lower bound for any constraint-based method. In the worst case, the two differ by at most a factor equal to the number of variables.</p>
       </div>
     </div>
 
@@ -110,7 +108,7 @@ description: "We extend recursive causal structure learning to settings with lat
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that the recursive strategy remains useful even in the harder mixed-graph setting. The benefit is again the reduction of a large discovery task into smaller local ones.</p>
+  <p>On synthetic models and real-world network structures, L-MARVEL improves both computational complexity and structural-recovery performance over the compared state-of-the-art methods on almost all evaluated setups. The recursive reduction also keeps conditioning sets smaller as the algorithm proceeds.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We extend recursive causal structure learning to settings with lat
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The harder setting inevitably means more complex assumptions and graph objects.</li>
-<li>The contribution is valuable precisely because it carries efficient recursive ideas into that harder regime.</li>
+        <li>The method handles both latent confounding and selection bias within one recursive mixed-graph framework.</li>
+        <li>The theoretical guarantees pair with benchmark improvements in both the number of CI tests and structure-learning accuracy.</li>
       </ul>
     </div>
   </div>

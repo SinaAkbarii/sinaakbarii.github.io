@@ -24,7 +24,8 @@ description: "We study how to design proxy experiments for causal effect identif
 
   <h1 class="paper-title">Fast Proxy Experiment Design for Causal Effect Identification</h1>
 
-  <div class="paper-authors">Sepehr Elahi · Sina Akbari · Jalal Etesami · Negar Kiyavash · Patrick Thiran</div>
+  <div class="paper-authors">Sepehr Elahi<sup>*</sup> · Sina Akbari<sup>*</sup> · Jalal Etesami · Negar Kiyavash · Patrick Thiran</div>
+  <div class="paper-note"><sup>*</sup> Equal contribution.</div>
   
   <div class="paper-venue-line">Advances in Neural Information Processing Systems · 2024</div>
 
@@ -41,21 +42,21 @@ description: "We study how to design proxy experiments for causal effect identif
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Direct interventions may be too expensive, so intervene on cheaper proxy variables instead. We reformulate the minimum-cost proxy experiment problem to make exact optimization much faster in practice, and also study designs based on valid adjustment sets. The same identification goal can be reached with far less computational overhead.</p>
+    <p>We revisit minimum-cost proxy experiment design and reformulate the problem as weighted Max-SAT and integer linear programming, producing exact algorithms that are dramatically faster in practice. We also develop a polynomial-time adjustment-set-based heuristic that improves on previous heuristics.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It makes proxy-experiment design computationally practical when direct interventions are too costly or impossible. The reformulations turn a previously cumbersome exact design problem into something that can be solved much faster.</p>
+    <p>The work makes exact proxy experiment design far more usable. Instead of solving exponentially many NP-hard subproblems, we exploit mature optimization formulations and obtain speedups of several orders of magnitude while preserving exact optimality.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Identifying causal effects is a key problem of interest across many disciplines. The two long-standing approaches to estimate causal effects are observational and experimental (randomized) studies. Observational studies can suffer from unmeasured confounding, which may render the causal effects unidentifiable. On the other hand, direct experiments on the target variable may be too costly or even infeasible to conduct. A middle ground between these two approaches is to estimate the causal effect of interest through proxy experiments, which are conducted on variables with a lower cost to intervene on compared to the main target. In an earlier work, we studied this setting and demonstrated that the problem of designing the optimal (minimum-cost) experiment for causal effect identification is NP-complete and provided a naive algorithm that may require solving exponentially many NP-hard problems as a sub-routine in the worst case. In this work, we provide a few reformulations of the problem that allow for designing significantly more efficient algorithms to solve it as witnessed by our extensive simulations. Additionally, we study the closely-related problem of designing experiments that enable us to identify a given effect through valid adjustments sets.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> If the ideal intervention is too expensive, we should not give up. We show how to design cheaper proxy interventions that still identify the effect we care about.
+  <strong>Main message.</strong> The same hard causal-design problem can become dramatically easier in practice when it is formulated in the right optimization language.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +79,18 @@ description: "We study how to design proxy experiments for causal effect identif
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. New exact formulations</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We provide efficient methods for designing proxy experiments that identify a causal effect without requiring direct interventions on the most expensive nodes.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We reformulate minimum-cost intervention design as partially weighted Max-SAT and integer linear programming, with additional formulations through submodular maximization and reinforcement learning. The resulting exact algorithms avoid the super-exponential dependence on the number of districts present in the earlier approach.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Adjustment-set proxy design</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical meaning</span>
-        
-        <p>The framework broadens the menu of feasible experiments by recognizing that indirect manipulations can still be scientifically useful.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We formulate minimum-cost experiment design for obtaining a valid adjustment set and derive a polynomial-time heuristic for the broader minimum-cost identification problem. This adjustment-based route is both interpretable and computationally efficient.</p>
       </div>
     </div>
 
@@ -110,7 +109,7 @@ description: "We study how to design proxy experiments for causal effect identif
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that fast proxy design can substantially reduce cost while preserving identifiability. The gain is especially meaningful in graphs where direct experimentation is structurally possible but financially unrealistic.</p>
+  <p>The new exact formulations are dramatically faster than the previous minimal-hedge solver: the ILP implementation is typically one to two orders of magnitude faster, while the Max-SAT implementation is four to five orders of magnitude faster in the single-district experiments. The new polynomial-time heuristic also consistently achieves lower normalized cost than the previous H1 and H2 heuristics.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +126,8 @@ description: "We study how to design proxy experiments for causal effect identif
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>Proxy interventions are powerful precisely when the causal graph channels their information to the target effect.</li>
-<li>The design remains assumption-driven, so proxy feasibility and scientific plausibility still matter.</li>
+        <li>The paper offers both exact optimization formulations and a fast heuristic, so the same framework supports different computational budgets.</li>
+        <li>The ILP formulation is particularly convenient when extra design constraints or domain knowledge need to be incorporated explicitly.</li>
       </ul>
     </div>
   </div>

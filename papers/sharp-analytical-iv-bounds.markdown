@@ -51,7 +51,7 @@ description: "We study the complexity of exact sharp analytical bounds in discre
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Bounding causal effects analytically, rather than numerically, is appealing for its interpretability and conceptual clarity. Existing sharp methods rely on optimization-based approaches such as the Balke–Pearl framework, whose computational complexity grows rapidly. An alternative line of work derives bounds heuristically using probability laws and generic inequalities, and some recent papers have claimed or conjectured that this approach can yield sharp analytical bounds with substantially lower complexity. In this paper, we show that this perceived advantage is illusory. In particular, in a discrete instrumental variable setting, we show that any sharp analytical bound for the average treatment effect must be expressible as a maximum (minimum) over a collection of linear terms whose cardinality grows exponentially in the number of values taken by the outcome. In parallel, we show that the number of instrumental variable inequalities itself also grows exponentially. Consequently, bounds and inequalities expressed using only polynomially many such terms cannot be sharp. As a constructive complement, the paper is accompanied by codes implemented in python and R to derive sharp analytical bounds and sharp inequalities with optimal computational complexity, matching the lower bounds proven in this paper. These codes are available online.</p>
 </div>
 
 <div class="paper-big-message">
@@ -108,19 +108,21 @@ description: "We study the complexity of exact sharp analytical bounds in discre
 </div>
 
 <h2>What the experiments show</h2>
-<div class="paper-stat-grid">
-<div class="paper-stat"><strong>5·4^(n−1)−2^(n+2)+4</strong><span>sharp ATE terms when ℓ = 2</span></div>
-<div class="paper-stat"><strong>2^(n+1)−4</strong><span>IV inequalities when ℓ = 2</span></div>
-<div class="paper-stat"><strong>>1000×</strong><span>speedup over causaloptim at n = 6</span></div>
-</div>
+
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The computation study shows that the direct generation strategy tracks the unavoidable exponential output size, while generic vertex-enumeration approaches scale much worse. The runtime gap becomes dramatic very quickly.</p>
+  <p>Our direct construction is not only output-optimal in theory; it is dramatically faster in computation. In the runtime comparison, our method is already more than 1,000× faster than <code>causaloptim</code> at outcome support size n = 6. At n = 7, our implementation takes milliseconds while <code>causaloptim</code> takes more than 24 hours, even though both return the same exact sharp bounds.</p>
+</div>
+
+<div class="paper-stat-grid">
+  <div class="paper-stat"><strong>&gt;1,000×</strong><span>faster than causaloptim at n = 6</span></div>
+  <div class="paper-stat"><strong>milliseconds</strong><span>our runtime at n = 7</span></div>
+  <div class="paper-stat"><strong>&gt;24 hours</strong><span>causaloptim runtime at n = 7</span></div>
 </div>
 
 <figure class="paper-figure">
   <img src="{{ '/papers/sharp-analytical-iv-bounds/figures/runtime-comparison.png' | relative_url }}" alt="Log-scale runtime comparison between causaloptim and the direct sharp-bound generation method as outcome support size increases.">
-  <figcaption>Runtime comparison corresponding to Figure 1 of the paper. The proposed method follows the unavoidable exponential output growth much more closely than generic vertex enumeration.</figcaption>
+  <figcaption>Runtime comparison from Figure 1 of the paper. The direct construction scales with the unavoidable output size, while generic vertex enumeration becomes much more expensive.</figcaption>
 </figure>
 
 <div class="paper-poster">
@@ -138,8 +140,8 @@ description: "We study the complexity of exact sharp analytical bounds in discre
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>Exact sharpness remains expensive in the worst case because the output itself is exponentially large.</li>
-<li>The paper gives the full constructive characterization for binary instruments and exponential lower bounds for multi-valued instruments.</li>
+        <li>For binary instruments, we give the complete explicit characterization together with software that generates the sharp ATE bounds and IV inequalities directly.</li>
+        <li>For multi-valued instruments, we establish general exponential lower bounds that rule out polynomial-size exact linear characterizations.</li>
       </ul>
     </div>
   </div>

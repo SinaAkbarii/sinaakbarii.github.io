@@ -41,21 +41,21 @@ description: "We show how structural side information can simplify Bayesian-netw
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>Structural side information can make Bayesian-network learning much cheaper. We build recursive constraint-based algorithms for bounded clique number and diamond-free graphs, showing that bounded-treewidth networks can be learned with polynomially many conditional-independence tests. Experiments show strong gains in scalability.</p>
+    <p>We show how structural side information can turn Bayesian-network learning from an exponential-scale problem into a polynomial one in important graph classes. RSL recursively exploits either a known clique-number bound or diamond-free structure, with explicit CI-test complexity guarantees.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It shows that even coarse structural knowledge can dramatically reduce the cost of learning Bayesian networks. Bounded clique number or diamond-free structure can turn an exponential testing burden into polynomial complexity.</p>
+    <p>Prior structural knowledge is common in scientific applications but is often used informally. This paper converts simple graph-level knowledge into provable computational savings and better structure-learning performance.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>We study the problem of learning a Bayesian network (BN) of a set of variables when structural side information about the system is available. It is well known that learning the structure of a general BN is both computationally and statistically challenging. However, often in many applications, side information about the underlying structure can potentially reduce the learning complexity. In this paper, we develop a recursive constraint-based algorithm that efficiently incorporates such knowledge (i.e., side information) into the learning process. In particular, we study two types of structural side information about the underlying BN: (I) an upper bound on its clique number is known, or (II) it is diamond-free. We provide theoretical guarantees for the learning algorithms, including the worst-case number of tests required in each scenario. As a consequence of our work, we show that bounded treewidth BNs can be learned with polynomial complexity. Furthermore, we evaluate the performance and the scalability of our algorithms in both synthetic and real-world structures and show that they outperform the state-of-the-art structure learning algorithms.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Small pieces of prior structural knowledge can buy a lot. We show how to turn that knowledge into real computational savings for Bayesian-network learning.
+  <strong>Main message.</strong> A small amount of structural side information can radically simplify Bayesian-network learning—and our recursive algorithms turn that information into both theory and practical speedups.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We show how structural side information can simplify Bayesian-netw
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Recursive learning with side information</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We develop learning methods for Bayesian networks that leverage structural side information to reduce computational complexity.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We develop Recursive Structure Learning (RSL) algorithms for two forms of side information: a known upper bound on the clique number and diamond-free structure. For each case, we derive worst-case bounds on the number of required CI tests.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Polynomial learning for important graph classes</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Why it matters</span>
-        
-        <p>The paper shows that even coarse background knowledge can be converted into a tangible algorithmic advantage.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>As a consequence of the clique-number result, bounded-treewidth Bayesian networks can be learned with polynomial CI-test complexity. The analysis shows explicitly how structural information changes the computational scaling of constraint-based learning.</p>
       </div>
     </div>
 
@@ -110,7 +108,7 @@ description: "We show how structural side information can simplify Bayesian-netw
 <h2>What the experiments show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The empirical results show that side information can substantially reduce runtime and search difficulty while preserving or improving structural recovery. This makes prior knowledge operational rather than merely qualitative.</p>
+  <p>Across synthetic and real-world Bayesian-network structures, the RSL algorithms outperform state-of-the-art structure-learning baselines in scalability and structural accuracy. Notably, RSLD remains highly competitive even on graphs that are not exactly diamond-free, showing that the recursive strategy can be useful beyond the idealized structural class.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We show how structural side information can simplify Bayesian-netw
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The value depends on the side information being at least approximately correct.</li>
-<li>The main contribution is computational leverage, not a claim that prior knowledge eliminates all uncertainty.</li>
+        <li>The two RSL variants exploit different kinds of graph knowledge, giving a practical choice depending on what structural information is available.</li>
+        <li>The bounded-treewidth consequence links the method to a widely studied graph class while retaining polynomial complexity.</li>
       </ul>
     </div>
   </div>

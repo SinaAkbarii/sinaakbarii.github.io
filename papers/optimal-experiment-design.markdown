@@ -41,21 +41,21 @@ description: "We study which experiments should be run when observational data a
 <div class="paper-summary-grid">
   <div class="paper-summary-card">
     <h2><strong>TL;DR.</strong></h2>
-    <p>When observations alone cannot identify a causal effect, which interventions should we pay for? We cast minimum-cost identification as a hitting-set problem, prove the exact problem is NP-complete, and give optimal, approximate, and fast heuristic methods. In simulations, the heuristics stay close to the minimum cost.</p>
+    <p>When observational data cannot identify a target causal effect, we ask which interventions should be performed at minimum cost. We prove the exact design problem is NP-complete, connect it to minimum hitting set, and give exact, logarithmic-approximation, and polynomial-time heuristic algorithms. Simulations show the heuristics achieve low regret on random causal graphs.</p>
   </div>
   <div class="paper-summary-card">
     <h2><strong>Why this matters.</strong></h2>
-    <p>It gives a systematic way to spend experimental budget only where identification needs it. The causal design problem becomes a concrete combinatorial optimization problem with provable guarantees.</p>
+    <p>The result turns causal identifiability into an actionable experiment-design problem with variable-specific costs and provable guarantees. It tells us how to spend experimental budget specifically on the interventions needed for the causal query of interest.</p>
   </div>
 </div>
 
 <h2>Abstract</h2>
 <div class="paper-abstract">
-  <p><span class="paper-abstract-pending">Official published abstract to be inserted from the final paper PDF. This beta page intentionally does not substitute a lay summary for the formal abstract.</span></p>
+  <p>Pearl’s do calculus is a complete axiomatic approach to learn the identifiable causal effects from observational data. When such an effect is not identifiable, it is necessary to perform a collection of often costly interventions in the system to learn the causal effect. In this work, we consider the problem of designing a collection of interventions with the minimum cost to identify the desired effect. First, we prove that this problem is NP-complete and subsequently propose an algorithm that can either find the optimal solution or a logarithmic-factor approximation of it. This is done by establishing a connection between our problem and the minimum hitting set problem. Additionally, we propose several polynomial time heuristic algorithms to tackle the computational complexity of the problem. Although these algorithms could potentially stumble on sub-optimal solutions, our simulations show that they achieve small regrets on random graphs.</p>
 </div>
 
 <div class="paper-big-message">
-  <strong>Main message.</strong> Instead of asking whether an effect is identifiable, we ask the more practical question: what is the best set of experiments to make it identifiable? We give a systematic answer.
+  <strong>Main message.</strong> We turn the question “what should we intervene on?” into a principled optimization problem with exact algorithms, approximation guarantees, and fast practical heuristics.
 </div>
 
 <div class="paper-poster">
@@ -78,20 +78,18 @@ description: "We study which experiments should be run when observational data a
     </div>
 
     <div class="paper-poster-card">
-      <h3>3. Main result</h3>
+      <h3>3. Complexity of optimal design</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Main contribution</span>
-        
-        <p>We provide algorithms and structural insights for selecting experiments that make a causal effect identifiable while controlling intervention cost.</p>
+        <span class="paper-result-label">Theory</span>
+        <p>We prove that finding a minimum-cost intervention set for identifying a specific causal effect is NP-complete. We also show that obtaining a sub-logarithmic-factor approximation is NP-hard.</p>
       </div>
     </div>
 
     <div class="paper-poster-card">
-      <h3>4. Another result</h3>
+      <h3>4. Exact and approximate design</h3>
       <div class="paper-result">
-        <span class="paper-result-label">Practical payoff</span>
-        
-        <p>The output is not just a yes/no answer about identifiability. We return a concrete experimental plan, which is exactly what a practitioner needs.</p>
+        <span class="paper-result-label">Theory + algorithm</span>
+        <p>We reduce the design problem to minimum hitting set. This yields an algorithm that can recover the exact optimum and, when used approximately, gives a logarithmic-factor approximation. We also develop polynomial-time heuristics and identify special cases that admit efficient exact solutions.</p>
       </div>
     </div>
 
@@ -107,10 +105,10 @@ description: "We study which experiments should be run when observational data a
   </div>
 </div>
 
-<h2>What the experiments show</h2>
+<h2>What the simulations show</h2>
 <div class="paper-simulation-message">
   <strong>Main empirical message.</strong>
-  <p>The experiments show that structure-aware optimization can find small, effective intervention sets without exhaustively testing all possibilities. In other words, identification-guided design can be computationally practical.</p>
+  <p>On randomly generated causal graphs, the polynomial-time heuristics consistently return intervention sets whose costs are close to the optimum. The simulations support the practical value of the fast heuristics when exact combinatorial optimization is unnecessary or too expensive.</p>
 </div>
 
 <div class="paper-poster">
@@ -127,8 +125,8 @@ description: "We study which experiments should be run when observational data a
     <div class="paper-poster-card">
       <h3>Keep in mind</h3>
       <ul>
-        <li>The method assumes a causal graph or a scientifically justified graph class to design against.</li>
-<li>The value comes from targeting identifiability, so the quality of the design still depends on the quality of the causal assumptions.</li>
+        <li>The framework allows interventions to carry different costs and also allows some variables to be unavailable for intervention.</li>
+        <li>Beyond the general NP-complete problem, the paper identifies special graph/design regimes that can be solved exactly in polynomial time.</li>
       </ul>
     </div>
   </div>
