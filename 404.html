@@ -1,21 +1,85 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px Times; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">--- permalink: /404.html layout: default ---</span></p>
-<h1 style="margin: 0.0px 0.0px 30.0px 0.0px; text-align: center; font: 48.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>404</b></span></h1>
-<p class="p3"><span class="s1"><b>Page not found!</b><b></b></span></p>
-<p class="p3"><span class="s1">I'm so sorry :( Would you like me to create this page? ping me at [initials]2385@cam.ac.uk ;)</span></p>
-</body>
-</html>
+---
+permalink: /404.html
+layout: default
+title: Page not found
+---
+
+<style>
+  .error-page {
+    max-width: 680px;
+    margin: 4.5rem auto 5.5rem;
+    padding: 2.25rem 2rem;
+    text-align: center;
+    background: var(--site-surface);
+    border: 1px solid var(--site-border);
+    border-radius: 0.7rem;
+  }
+
+  .error-page__code {
+    margin: 0;
+    color: var(--site-text);
+    font-size: clamp(3.8rem, 12vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+  }
+
+  .error-page__title {
+    margin: 1rem 0 0.5rem;
+    color: var(--site-text);
+    font-size: 1.35rem;
+    font-weight: 650;
+  }
+
+  .error-page__copy {
+    max-width: 34rem;
+    margin: 0.5rem auto 1.5rem;
+    color: var(--site-muted);
+    line-height: 1.65;
+  }
+
+  .error-page__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  .error-page__link,
+  .error-page__link:visited {
+    display: inline-block;
+    padding: 0.48rem 0.78rem;
+    color: var(--site-cyan);
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--site-border);
+    border-radius: 0.42rem;
+    background: var(--site-surface-soft);
+  }
+
+  .error-page__link:hover,
+  .error-page__link:focus-visible {
+    border-color: var(--site-cyan);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .error-page {
+      margin: 2.5rem auto 3.5rem;
+      padding: 1.75rem 1.2rem;
+    }
+  }
+</style>
+
+<div class="error-page">
+  <p class="error-page__code">404</p>
+  <h1 class="error-page__title">This page does not exist yet.</h1>
+  <p class="error-page__copy">
+    If you were hoping to find something here, feel free to <a href="{{ '/contact/' | relative_url }}">contact me</a> and tell me what page I should build next.
+  </p>
+  <div class="error-page__links">
+    <a class="error-page__link" href="{{ '/' | relative_url }}">Home</a>
+    <a class="error-page__link" href="{{ '/publications/' | relative_url }}">Publications</a>
+    <a class="error-page__link" href="{{ '/contact/' | relative_url }}">Contact me</a>
+  </div>
+</div>
