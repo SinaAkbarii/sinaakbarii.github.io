@@ -173,7 +173,7 @@
     <span class="news-date">Aug 2026</span>
     <span class="news-award">🏆 UAI Best Paper Award</span>
   </div>
-  <div class="news-copy">🎉 We won the UAI Best Paper Award for our paper on <a class="news-paper-link" href="https://arxiv.org/pdf/2604.12802">‘Sharp Analytical Causal Bounds in Instrumental Variable Models’</a>!</div>
+  <div class="news-copy">🎉 We won the UAI Best Paper Award for our paper on <a class="news-paper-link" href="{{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}">‘Sharp Analytical Causal Bounds in Instrumental Variable Models’</a>!</div>
 </div>
 
 <div class="news-item">
@@ -181,7 +181,7 @@
     <span class="news-date">Jun 2026</span>
     <span class="news-status">ORAL</span>
   </div>
-  <div class="news-copy">Our paper on <a class="news-paper-link" href="https://arxiv.org/pdf/2604.12802">‘Sharp Analytical Causal Bounds in Instrumental Variable Models’</a> was accepted for an oral presentation at UAI 2026. Shout-out to Pargol &amp; Mohammad Reza!</div>
+  <div class="news-copy">Our paper on <a class="news-paper-link" href="{{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}">‘Sharp Analytical Causal Bounds in Instrumental Variable Models’</a> was accepted for an oral presentation at UAI 2026. Shout-out to Pargol &amp; Mohammad Reza!</div>
 </div>
 
 <div class="news-item">
@@ -189,14 +189,14 @@
   <div class="news-copy">I gave a talk at EuroCIM!
     <span class="news-actions">
       <a class="news-btn news-btn--slides" href="https://www.sakbari.com/EuroCIM2026.pdf">Slides</a>
-      <a class="news-btn news-btn--paper" href="https://arxiv.org/pdf/2604.12802">Paper</a>
+      <a class="news-btn news-btn--paper" href="{{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}">Paper</a>
     </span>
   </div>
 </div>
 
 <div class="news-item">
   <div class="news-meta"><span class="news-date">Feb 2026</span></div>
-  <div class="news-copy">Our <a class="news-paper-link" href="https://openreview.net/pdf?id=ZIQactmQxb">‘CaTs and DAGs’</a> found shelter at ICLR 2026 :)</div>
+  <div class="news-copy">Our <a class="news-paper-link" href="{{ '/papers/cats-and-dags/' | relative_url }}">‘CaTs and DAGs’</a> found shelter at ICLR 2026 :)</div>
 </div>
 
 <div class="news-item">
@@ -215,7 +215,7 @@
 
 <div class="news-item">
   <div class="news-meta"><span class="news-date">Sep 2025</span></div>
-  <div class="news-copy">A new manuscript is out! <a class="news-paper-link" href="https://arxiv.org/pdf/2502.19788">‘Semiparametric Triple Difference Estimators’</a></div>
+  <div class="news-copy">A new manuscript is out! <a class="news-paper-link" href="{{ '/papers/semiparametric-triple-difference/' | relative_url }}">‘Semiparametric Triple Difference Estimators’</a></div>
 </div>
 
 <div class="news-item">
@@ -225,12 +225,12 @@
 
 <div class="news-item">
   <div class="news-meta"><span class="news-date">Sep 2024</span></div>
-  <div class="news-copy">Our paper <a class="news-paper-link" href="https://www.jmlr.org/papers/volume26/22-1516/22-1516.pdf">‘Optimal Experiment Design for Causal Effect Identification’</a> just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&amp;NeurIPS outstanding papers.</div>
+  <div class="news-copy">Our paper <a class="news-paper-link" href="{{ '/papers/optimal-experiment-design/' | relative_url }}">‘Optimal Experiment Design for Causal Effect Identification’</a> just got accepted to appear in Journal of Machine Learning Research (JMLR) special issue for ICML&amp;NeurIPS outstanding papers.</div>
 </div>
 
 <div class="news-item">
   <div class="news-meta"><span class="news-date">Sep 2024</span></div>
-  <div class="news-copy">Our paper <a class="news-paper-link" href="https://arxiv.org/html/2407.05330v1">‘Fast Proxy Experiment Design for Causal Effect Identification’</a> got accepted to NeurIPS 2024.</div>
+  <div class="news-copy">Our paper <a class="news-paper-link" href="{{ '/papers/fast-proxy-experiment-design/' | relative_url }}">‘Fast Proxy Experiment Design for Causal Effect Identification’</a> got accepted to NeurIPS 2024.</div>
 </div>
 
 <div class="news-item">
@@ -238,7 +238,7 @@
     <span class="news-date">Jul 2024</span>
     <span class="news-status">SPOTLIGHT</span>
   </div>
-  <div class="news-copy">I presented my Spotlight paper on the <a class="news-paper-link" href="https://icml.cc/virtual/2024/poster/32647">‘Triple Changes Estimator’</a>, a generalisation of the changes-in-changes framework, at ICML 2024, Vienna.</div>
+  <div class="news-copy">I presented my Spotlight paper on the <a class="news-paper-link" href="{{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}">‘Triple Changes Estimator’</a>, a generalisation of the changes-in-changes framework, at ICML 2024, Vienna.</div>
 </div>
 
 <div class="news-item">
