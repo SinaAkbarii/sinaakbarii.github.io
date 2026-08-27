@@ -25,7 +25,6 @@ layout: home
   margin: 0.35em 0;
   line-height: 1.58;
 }
-
 .home-copy a,
 .home-copy a:visited {
   position: relative;
@@ -55,27 +54,25 @@ layout: home
   background: currentColor;
   opacity: 0.18;
 }
-
 @media (max-width: 650px) {
   .home-intro {
     display: block;
   }
 
   .home-photo {
-    width: 170px;
-    margin-bottom: 0.7em;
+    width: 180px;
+    margin-bottom: 0.5em;
   }
 }
 </style>
-
 <div class="home-intro">
   <img class="home-photo" src="/pics/head.jpg" alt="Sina">
   <div class="home-copy">
-    <p>Hi there! I am Sina, a Post-doctoral fellow at the <a href="https://www.statslab.cam.ac.uk">Statistical Laboratory</a>, University of Cambridge, where I am advised by <a href="https://www.statslab.cam.ac.uk/~qz280/">Qingyuan Zhao</a>. Previously, I received a PhD in Computer Science from École Polytechnique Fédérale de Lausanne (EPFL), where I was supervised by <a href="https://people.epfl.ch/negar.kiyavash?lang=en">Negar Kiyavash</a>, chair of <a href="https://www.epfl.ch/labs/ban/">Business Analytics</a>.</p>
-    <p>My research primarily focuses on causal inference, with a broad interest in statistics and machine learning.</p>
+    <p>Hi there! I am Sina, a postdoctoral fellow at the <a href="https://www.statslab.cam.ac.uk">Statistical Laboratory</a>, University of Cambridge, where I work with <a href="https://www.statslab.cam.ac.uk/~qz280/">Qingyuan Zhao</a>.
+Previously, I received a PhD in Computer Science from École Polytechnique Fédérale de Lausanne (EPFL) (<a href="https://infoscience.epfl.ch/entities/publication/e2a09d92-2463-4ee1-82ac-fa5b4ef4dfec">doctoral thesis</a>), where I was supervised by <a href="https://people.epfl.ch/negar.kiyavash?lang=en">Negar Kiyavash</a> at <a href="https://www.epfl.ch/labs/ban/">Business Analytics</a>.</p>
+    <p>My research focuses on causal inference, specifically, partial identification, experiment and intervention design, semiparametric methods for policy evaluation, sequential decision-making with incomplete feedback, incorporating causal structure into predictive models, and scalable causal discovery. A recurring theme is developing methods that use flexible machine-learning tools while still providing statistical guarantees. </p>
   </div>
 </div>
-
 <h2 class="home-news-heading">News</h2>
 
 {% include news.markdown %}

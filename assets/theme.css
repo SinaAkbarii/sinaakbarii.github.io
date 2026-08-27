@@ -310,3 +310,13 @@ html[data-theme="dark"] .theme-icon--moon {
     transition: none;
   }
 }
+
+/* Site-wide copyright */
+.site-footer .wrapper::after {
+  content: "© Sina Akbari";
+  display: block;
+  color: var(--site-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
