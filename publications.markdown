@@ -67,8 +67,19 @@ a:visited {
 .pub-title-link {
   position: relative;
   left: 0;
-  font-weight: 500;
+  font-weight: 600;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.13em;
   transition: left 140ms ease, text-decoration-thickness 140ms ease;
+}
+
+.pub-title-link::after {
+  content: " ↗";
+  display: inline;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .pub-title-link:hover,
@@ -76,35 +87,6 @@ a:visited {
   left: 2px;
   text-decoration-thickness: 0.1em;
 }
-
-
-.pub-explore-link,
-.pub-explore-link:visited {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.52em;
-  padding: 0.08em 0.52em;
-  border: 1.25px solid var(--site-blue, #2563EB);
-  border-radius: 999px;
-  background: var(--site-surface-soft, transparent);
-  color: var(--site-blue, #2563EB);
-  font-size: 0.78em;
-  font-weight: 700;
-  line-height: 1.45;
-  text-decoration: none;
-  white-space: nowrap;
-  vertical-align: 0.06em;
-  transition: transform 120ms ease, background-color 120ms ease;
-}
-
-.pub-explore-link:hover,
-.pub-explore-link:focus-visible {
-  transform: translateY(-1px);
-  background: var(--hover-blue, rgba(37, 99, 235, 0.08));
-  text-decoration: none;
-}
-
-
 /* --- Publication card --- */
 .pub-entry {
   margin: 0.58em 0 0.78em 0;
@@ -508,13 +490,13 @@ function fallbackCopyPubBibtex(text, callback) {
 
 <div class="pub-detail-hint">
 <span class="pub-hint-chevron" aria-hidden="true"></span>
-<span><strong>Tip:</strong> use <strong>Explore paper →</strong> for an overview of the paper with results, figures, and key ideas. Use the chevron for a quick TL;DR, resources, and citation info.</span>
+<span><strong>Tip:</strong> click a paper title to open its overview with results, figures, and key ideas. Use the chevron for a quick TL;DR, resources, and citation info.</span>
 </div>
 
 
 ## Preprints:
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> [Semiparametric Triple Difference Estimators]({{ '/papers/semiparametric-triple-difference/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/semiparametric-triple-difference/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> [Semiparametric Triple Difference Estimators]({{ '/papers/semiparametric-triple-difference/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">triple difference</span><span class="pub-keyword">difference-in-differences</span><span class="pub-keyword">semiparametric estimation</span><span class="pub-keyword">policy evaluation</span></div>
 <div class="pub-card" id="pub-details-1" hidden>
@@ -541,7 +523,7 @@ function fallbackCopyPubBibtex(text, callback) {
 
 ## Journal publications:
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-2" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Optimal Experiment Design for Causal Effect Identification]({{ '/papers/optimal-experiment-design/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/optimal-experiment-design/' | relative_url }}">Explore paper →</a> Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-2" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Optimal Experiment Design for Causal Effect Identification]({{ '/papers/optimal-experiment-design/' | relative_url }}){:.pub-title-link} Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">experiment design</span><span class="pub-keyword">interventions</span><span class="pub-keyword">combinatorial optimization</span></div>
 <div class="pub-card" id="pub-details-2" hidden>
@@ -568,7 +550,7 @@ function fallbackCopyPubBibtex(text, callback) {
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-3" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Recursive Causal Discovery]({{ '/papers/recursive-causal-discovery/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/recursive-causal-discovery/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-3" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Recursive Causal Discovery]({{ '/papers/recursive-causal-discovery/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">recursive algorithms</span><span class="pub-keyword">conditional independence</span><span class="pub-keyword">structure learning</span></div>
 <div class="pub-card" id="pub-details-3" hidden>
@@ -595,7 +577,7 @@ function fallbackCopyPubBibtex(text, callback) {
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-4" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">TMLR 2023</span> [A Free Lunch with Influence Functions? An Empirical Evaluation of Influence Functions for Average Treatment Effect Estimation]({{ '/papers/free-lunch-influence-functions/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/free-lunch-influence-functions/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-4" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">TMLR 2023</span> [A Free Lunch with Influence Functions? An Empirical Evaluation of Influence Functions for Average Treatment Effect Estimation]({{ '/papers/free-lunch-influence-functions/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal effect estimation</span><span class="pub-keyword">influence functions</span><span class="pub-keyword">semiparametric statistics</span><span class="pub-keyword">machine learning</span></div>
 <div class="pub-card" id="pub-details-4" hidden>
@@ -619,7 +601,7 @@ function fallbackCopyPubBibtex(text, callback) {
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-5" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2021</span> [A Recursive Markov Boundary-Based Approach to Causal Structure Learning]({{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-5" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2021</span> [A Recursive Markov Boundary-Based Approach to Causal Structure Learning]({{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">Markov boundaries</span><span class="pub-keyword">constraint-based learning</span><span class="pub-keyword">structure learning</span></div>
 <div class="pub-card" id="pub-details-5" hidden>
@@ -650,7 +632,7 @@ function fallbackCopyPubBibtex(text, callback) {
 ## Conference publications:
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> [Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models]({{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> [Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models]({{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">instrumental variables</span><span class="pub-keyword">partial identification</span><span class="pub-keyword">sharp bounds</span><span class="pub-keyword">causal inference</span></div>
 <div class="pub-card" id="pub-details-6" hidden>
@@ -679,7 +661,7 @@ function fallbackCopyPubBibtex(text, callback) {
 
 <div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-7" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICLR 2026</span> [CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
-Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/papers/cats-and-dags/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/cats-and-dags/' | relative_url }}">Explore paper →</a>
+Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/papers/cats-and-dags/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal machine learning</span><span class="pub-keyword">transformers</span><span class="pub-keyword">DAGs</span><span class="pub-keyword">robustness</span></div>
 <div class="pub-card" id="pub-details-7" hidden>
@@ -703,7 +685,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-8" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments]({{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-8" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments]({{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">latent confounding</span><span class="pub-keyword">heterogeneous environments</span><span class="pub-keyword">higher-order moments</span></div>
 <div class="pub-card" id="pub-details-8" hidden>
@@ -731,7 +713,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-9" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Multi-armed Bandits with Missing Outcomes]({{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-9" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Multi-armed Bandits with Missing Outcomes]({{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">multi-armed bandits</span><span class="pub-keyword">missing data</span><span class="pub-keyword">online learning</span><span class="pub-keyword">regret</span></div>
 <div class="pub-card" id="pub-details-9" hidden>
@@ -759,7 +741,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-10" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">CLeaR 2025</span> [Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding]({{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-10" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">CLeaR 2025</span> [Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding]({{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">distribution testing</span><span class="pub-keyword">sample complexity</span><span class="pub-keyword">hidden confounding</span></div>
 <div class="pub-card" id="pub-details-10" hidden>
@@ -787,7 +769,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-11" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2024</span> [Fast Proxy Experiment Design for Causal Effect Identification]({{ '/papers/fast-proxy-experiment-design/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/fast-proxy-experiment-design/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-11" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2024</span> [Fast Proxy Experiment Design for Causal Effect Identification]({{ '/papers/fast-proxy-experiment-design/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">experiment design</span><span class="pub-keyword">proxy interventions</span><span class="pub-keyword">optimization</span></div>
 <div class="pub-card" id="pub-details-11" hidden>
@@ -813,7 +795,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status">SPOTLIGHT</span> [Triple changes estimator for targeted policies]({{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status">SPOTLIGHT</span> [Triple changes estimator for targeted policies]({{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">policy evaluation</span><span class="pub-keyword">triple differences</span><span class="pub-keyword">changes-in-changes</span><span class="pub-keyword">optimal transport</span></div>
 <div class="pub-card" id="pub-details-12" hidden>
@@ -841,7 +823,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-13" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPs 2023</span> [Causal effect identification in uncertain causal networks]({{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-13" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPs 2023</span> [Causal effect identification in uncertain causal networks]({{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">graph uncertainty</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">causal graphs</span></div>
 <div class="pub-card" id="pub-details-13" hidden>
@@ -866,7 +848,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-14" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023</span> [Causal imitability under context-specific independence relations]({{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-14" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023</span> [Causal imitability under context-specific independence relations]({{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">imitation learning</span><span class="pub-keyword">context-specific independence</span><span class="pub-keyword">latent confounding</span><span class="pub-keyword">causal inference</span></div>
 <div class="pub-card" id="pub-details-14" hidden>
@@ -891,7 +873,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> [Minimm-cost Intervention Design for Causal Effect Identification]({{ '/papers/minimum-cost-intervention-design/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/minimum-cost-intervention-design/' | relative_url }}">Explore paper →</a>.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> [Minimm-cost Intervention Design for Causal Effect Identification]({{ '/papers/minimum-cost-intervention-design/' | relative_url }}){:.pub-title-link}.
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">intervention design</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">do-calculus</span></div>
 <div class="pub-card" id="pub-details-15" hidden>
@@ -919,7 +901,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-16" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">AAAI 2022</span> [Learning Bayesian Networks in the Presence of Structural Side Information]({{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-16" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">AAAI 2022</span> [Learning Bayesian Networks in the Presence of Structural Side Information]({{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">Bayesian networks</span><span class="pub-keyword">causal discovery</span><span class="pub-keyword">structural side information</span><span class="pub-keyword">constraint-based learning</span></div>
 <div class="pub-card" id="pub-details-16" hidden>
@@ -947,7 +929,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-17" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2021</span> [Recursive Causal Structure Learning in the Presence of Latent Variables and Selection Bias]({{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}">Explore paper →</a>.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-17" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2021</span> [Recursive Causal Structure Learning in the Presence of Latent Variables and Selection Bias]({{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}){:.pub-title-link}.
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">latent variables</span><span class="pub-keyword">selection bias</span><span class="pub-keyword">MAGs</span></div>
 <div class="pub-card" id="pub-details-17" hidden>
@@ -977,7 +959,7 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 
 ## Workshop Publications:
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-18" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023 — workshop on Optimal Transport and Machine Learning (OTML)</span> [Causal Discovery via Monotone Triangular Transport Maps]({{ '/papers/causal-discovery-transport-maps/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/causal-discovery-transport-maps/' | relative_url }}">Explore paper →</a>
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-18" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023 — workshop on Optimal Transport and Machine Learning (OTML)</span> [Causal Discovery via Monotone Triangular Transport Maps]({{ '/papers/causal-discovery-transport-maps/' | relative_url }}){:.pub-title-link}
 
 <div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">optimal transport</span><span class="pub-keyword">conditional independence</span><span class="pub-keyword">transport maps</span></div>
 <div class="pub-card" id="pub-details-18" hidden>
