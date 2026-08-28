@@ -78,6 +78,33 @@ a:visited {
 }
 
 
+.pub-explore-link,
+.pub-explore-link:visited {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.52em;
+  padding: 0.08em 0.52em;
+  border: 1.25px solid var(--site-blue, #2563EB);
+  border-radius: 999px;
+  background: var(--site-surface-soft, transparent);
+  color: var(--site-blue, #2563EB);
+  font-size: 0.78em;
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: 0.06em;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.pub-explore-link:hover,
+.pub-explore-link:focus-visible {
+  transform: translateY(-1px);
+  background: var(--hover-blue, rgba(37, 99, 235, 0.08));
+  text-decoration: none;
+}
+
+
 /* --- Publication card --- */
 .pub-entry {
   margin: 0.58em 0 0.78em 0;
@@ -192,23 +219,35 @@ a:visited {
   margin: 0.38em 0;
 }
 
-/* Keywords stay as compact rounded tags. */
+/* Keywords are always visible, but styled as quiet metadata rather than pills. */
 .pub-keywords {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.32em;
-  align-items: center;
-  margin: 0.08em 0 0.52em 0;
+  align-items: baseline;
+  margin: 0.38em 0 0.08em 1.55em;
+  color: var(--site-muted, #6B7280);
+  font-size: 0.79em;
+  line-height: 1.5;
+}
+
+.pub-keywords--always {
+  margin: 0.38em 0 0.08em 1.55em;
 }
 
 .pub-keyword {
-  display: inline-block;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  padding: 0.06em 0.48em;
-  font-size: 0.78em;
-  line-height: 1.55;
-  white-space: nowrap;
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: normal;
+}
+
+.pub-keyword:not(:last-child)::after {
+  content: " · ";
+  margin: 0 0.34em;
+  color: var(--site-muted, #6B7280);
 }
 
 /* Resources get their own labeled band and rectangular buttons,
@@ -274,6 +313,25 @@ a:visited {
 .pub-btn--talk,
 .pub-btn--talk:visited {
   color: var(--site-talk, #B23A48);
+}
+
+
+.pub-btn--overview,
+.pub-btn--overview:visited {
+  color: var(--site-blue, #2563EB);
+  font-weight: 700;
+  border-width: 1.35px;
+  background: var(--site-surface-soft, transparent);
+}
+
+.pub-btn--overview:hover,
+.pub-btn--overview:focus-visible {
+  background: var(--hover-blue, rgba(37, 99, 235, 0.08));
+}
+
+.pub-btn--overview::before {
+  content: "→";
+  font-weight: 700;
 }
 
 .pub-btn--repo:hover,
@@ -450,22 +508,22 @@ function fallbackCopyPubBibtex(text, callback) {
 
 <div class="pub-detail-hint">
 <span class="pub-hint-chevron" aria-hidden="true"></span>
-<span><strong>Tip:</strong> expand a paper with the chevron to see keywords, resources, a TL;DR, why it matters, and citation info.</span>
+<span><strong>Tip:</strong> use <strong>Explore paper →</strong> for an overview of the paper with results, figures, and key ideas. Use the chevron for a quick TL;DR, resources, and citation info.</span>
 </div>
 
 
 ## Preprints:
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> [Semiparametric Triple Difference Estimators]({{ '/papers/semiparametric-triple-difference/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> [Semiparametric Triple Difference Estimators]({{ '/papers/semiparametric-triple-difference/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/semiparametric-triple-difference/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">triple difference</span><span class="pub-keyword">difference-in-differences</span><span class="pub-keyword">semiparametric estimation</span><span class="pub-keyword">policy evaluation</span></div>
 <div class="pub-card" id="pub-details-1" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">triple difference</span><span class="pub-keyword">difference-in-differences</span><span class="pub-keyword">semiparametric estimation</span><span class="pub-keyword">policy evaluation</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/triplediff" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://arxiv.org/abs/2502.19788" target="_blank" rel="noopener noreferrer">arXiv</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/semiparametric-triple-difference/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/triplediff" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://arxiv.org/abs/2502.19788" target="_blank" rel="noopener noreferrer">arXiv</a></div>
 </div>
 <p><strong>TL;DR.</strong> Triple differences can relax parallel trends by borrowing information from an auxiliary domain. We give identification formulas and doubly robust semiparametric estimators for both panel and repeated cross-section data. The repeated cross-section setup also allows covariates to change over time.</p>
-<p><strong>Why this matters.</strong> It puts triple-difference analysis on a modern semiparametric footing, with flexible nuisance estimation and robustness guarantees. It also avoids the usual no-compositional-change assumption for repeated cross-sections.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@misc{akbari2025semiparametric,
@@ -483,16 +541,16 @@ function fallbackCopyPubBibtex(text, callback) {
 
 ## Journal publications:
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-2" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Optimal Experiment Design for Causal Effect Identification]({{ '/papers/optimal-experiment-design/' | relative_url }}){:.pub-title-link} Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-2" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Optimal Experiment Design for Causal Effect Identification]({{ '/papers/optimal-experiment-design/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/optimal-experiment-design/' | relative_url }}">Explore paper →</a> Journal of Machine Learning Research (JMLR) special issue for ICML&NeurIPS outstanding papers.
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">experiment design</span><span class="pub-keyword">interventions</span><span class="pub-keyword">combinatorial optimization</span></div>
 <div class="pub-card" id="pub-details-2" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal identification</span><span class="pub-keyword">experiment design</span><span class="pub-keyword">interventions</span><span class="pub-keyword">combinatorial optimization</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/min_cost_intervention/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://www.jmlr.org/papers/v26/22-1516.html" target="_blank" rel="noopener noreferrer">JMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/optimal-experiment-design/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/min_cost_intervention/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://www.jmlr.org/papers/v26/22-1516.html" target="_blank" rel="noopener noreferrer">JMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> When observations alone cannot identify a causal effect, which interventions should we pay for? We cast minimum-cost identification as a hitting-set problem, prove the exact problem is NP-complete, and give optimal, approximate, and fast heuristic methods. In simulations, the heuristics stay close to the minimum cost.</p>
-<p><strong>Why this matters.</strong> It gives a systematic way to spend experimental budget only where identification needs it. The causal design problem becomes a concrete combinatorial optimization problem with provable guarantees.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@article{akbari2025optimal,
@@ -510,16 +568,16 @@ function fallbackCopyPubBibtex(text, callback) {
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-3" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Recursive Causal Discovery]({{ '/papers/recursive-causal-discovery/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-3" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2025</span> [Recursive Causal Discovery]({{ '/papers/recursive-causal-discovery/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/recursive-causal-discovery/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">recursive algorithms</span><span class="pub-keyword">conditional independence</span><span class="pub-keyword">structure learning</span></div>
 <div class="pub-card" id="pub-details-3" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal discovery</span><span class="pub-keyword">recursive algorithms</span><span class="pub-keyword">conditional independence</span><span class="pub-keyword">structure learning</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/ban-epfl/rcd" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://www.jmlr.org/papers/v26/24-0384.html" target="_blank" rel="noopener noreferrer">JMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/recursive-causal-discovery/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/ban-epfl/rcd" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://www.jmlr.org/papers/v26/24-0384.html" target="_blank" rel="noopener noreferrer">JMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> Causal discovery gets brittle and expensive when conditional-independence tests use large conditioning sets. The removable-variable view shrinks the graph one variable at a time, cutting both the number and size of those tests. The framework nearly matches worst-case lower bounds and is implemented in the RCD Python package.</p>
-<p><strong>Why this matters.</strong> It makes constraint-based discovery more scalable and less statistically fragile by keeping conditional-independence tests local. The same framework also unifies several recursive discovery algorithms in one package.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@article{JMLR:v26:24-0384,
@@ -537,16 +595,16 @@ function fallbackCopyPubBibtex(text, callback) {
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-4" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">TMLR 2023</span> [A Free Lunch with Influence Functions? An Empirical Evaluation of Influence Functions for Average Treatment Effect Estimation]({{ '/papers/free-lunch-influence-functions/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-4" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">TMLR 2023</span> [A Free Lunch with Influence Functions? An Empirical Evaluation of Influence Functions for Average Treatment Effect Estimation]({{ '/papers/free-lunch-influence-functions/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/free-lunch-influence-functions/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal effect estimation</span><span class="pub-keyword">influence functions</span><span class="pub-keyword">semiparametric statistics</span><span class="pub-keyword">machine learning</span></div>
 <div class="pub-card" id="pub-details-4" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal effect estimation</span><span class="pub-keyword">influence functions</span><span class="pub-keyword">semiparametric statistics</span><span class="pub-keyword">machine learning</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/matthewvowels1/FreeLunchSemiParametrics" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://openreview.net/forum?id=dQxBRqCjLr" target="_blank" rel="noopener noreferrer">TMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/free-lunch-influence-functions/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/matthewvowels1/FreeLunchSemiParametrics" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://openreview.net/forum?id=dQxBRqCjLr" target="_blank" rel="noopener noreferrer">TMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> Influence-function corrections can improve flexible machine-learning estimates of the average treatment effect, but there is no universal free lunch. Across datasets, the gains depend on the estimator, sample size, and data-generating process. The practical message is to stress-test conclusions across multiple estimation pipelines.</p>
-<p><strong>Why this matters.</strong> It is a practical warning against treating influence-function updates as a plug-and-play guarantee. The benefit depends on the estimator, sample size, and data-generating process.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@article{vowels2023free,
@@ -561,16 +619,16 @@ function fallbackCopyPubBibtex(text, callback) {
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-5" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2021</span> [A Recursive Markov Boundary-Based Approach to Causal Structure Learning]({{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-5" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">JMLR 2021</span> [A Recursive Markov Boundary-Based Approach to Causal Structure Learning]({{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">Markov boundaries</span><span class="pub-keyword">constraint-based learning</span><span class="pub-keyword">structure learning</span></div>
 <div class="pub-card" id="pub-details-5" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal discovery</span><span class="pub-keyword">Markov boundaries</span><span class="pub-keyword">constraint-based learning</span><span class="pub-keyword">structure learning</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/Ehsan-Mokhtarian/MARVEL" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v150/mokhtarian21a.html" target="_blank" rel="noopener noreferrer">PMLR</a><a class="pub-btn pub-btn--venue" href="https://4llab.net/workshops/CD2021/program.html" target="_blank" rel="noopener noreferrer">KDD workshop</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/recursive-markov-boundary-causal-learning/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/Ehsan-Mokhtarian/MARVEL" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v150/mokhtarian21a.html" target="_blank" rel="noopener noreferrer">PMLR</a><a class="pub-btn pub-btn--venue" href="https://4llab.net/workshops/CD2021/program.html" target="_blank" rel="noopener noreferrer">KDD workshop</a></div>
 </div>
 <p><strong>TL;DR.</strong> Use local Markov-boundary information to find a variable that can be safely peeled off, learn its neighborhood, and recurse. This sharply reduces the conditional-independence testing burden of constraint-based causal discovery. The resulting complexity is close to a lower bound and performs well on synthetic and real graphs.</p>
-<p><strong>Why this matters.</strong> It shows how local Markov-boundary information can turn a global causal discovery problem into a recursive one. That means fewer and smaller conditional-independence tests without giving up theoretical guarantees.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v150-mokhtarian21a,
@@ -592,16 +650,16 @@ function fallbackCopyPubBibtex(text, callback) {
 ## Conference publications:
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> [Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models]({{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-6" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2026</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Best Paper Award</span> [Fundamental Limits and Optimal Methods for Sharp Analytical Causal Bounds in Instrumental Variable Models]({{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">instrumental variables</span><span class="pub-keyword">partial identification</span><span class="pub-keyword">sharp bounds</span><span class="pub-keyword">causal inference</span></div>
 <div class="pub-card" id="pub-details-6" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">instrumental variables</span><span class="pub-keyword">partial identification</span><span class="pub-keyword">sharp bounds</span><span class="pub-keyword">causal inference</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/ArefeBoushehrian/Analytical-Causal-Bounds-in-Instrumental-Variable-Models" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v337/boushehrian26a.html" target="_blank" rel="noopener noreferrer">UAI / PMLR</a><a class="pub-btn pub-btn--slides" href="https://www.sakbari.com/EuroCIM2026.pdf" target="_blank" rel="noopener noreferrer">Slides</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/sharp-analytical-iv-bounds/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/ArefeBoushehrian/Analytical-Causal-Bounds-in-Instrumental-Variable-Models" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v337/boushehrian26a.html" target="_blank" rel="noopener noreferrer">UAI / PMLR</a><a class="pub-btn pub-btn--slides" href="https://www.sakbari.com/EuroCIM2026.pdf" target="_blank" rel="noopener noreferrer">Slides</a></div>
 </div>
 <p><strong>TL;DR.</strong> Sharp analytical instrumental-variable bounds cannot stay simple as the outcome alphabet grows. We prove that any sharp bound needs exponentially many linear pieces, and the same exponential barrier appears in the IV inequalities. We also give Python and R procedures that attain this optimal complexity.</p>
-<p><strong>Why this matters.</strong> It establishes a genuine complexity barrier for sharp analytical IV bounds: exponential structure is unavoidable. The accompanying algorithms match that lower bound, so the result says both what is impossible and what is optimal.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v337-boushehrian26a,
@@ -621,16 +679,16 @@ function fallbackCopyPubBibtex(text, callback) {
 
 <div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-7" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICLR 2026</span> [CaTs and DAGs: Integrating Directed Acyclic Graphs with Transformers and
-Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/papers/cats-and-dags/' | relative_url }}){:.pub-title-link}
+Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/papers/cats-and-dags/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/cats-and-dags/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal machine learning</span><span class="pub-keyword">transformers</span><span class="pub-keyword">DAGs</span><span class="pub-keyword">robustness</span></div>
 <div class="pub-card" id="pub-details-7" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal machine learning</span><span class="pub-keyword">transformers</span><span class="pub-keyword">DAGs</span><span class="pub-keyword">robustness</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/matthewvowels1/Causal_Transformer" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/2456a42386e445ba884511aa17ca4a30-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">ICLR</a><a class="pub-btn pub-btn--talk" href="https://slideslive.com/39057250/cats-and-dags-integrating-directed-acyclic-graphs-for-actually-causal-transformers" target="_blank" rel="noopener noreferrer">Talk</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/cats-and-dags/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/matthewvowels1/Causal_Transformer" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/2456a42386e445ba884511aa17ca4a30-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">ICLR</a><a class="pub-btn pub-btn--talk" href="https://slideslive.com/39057250/cats-and-dags-integrating-directed-acyclic-graphs-for-actually-causal-transformers" target="_blank" rel="noopener noreferrer">Talk</a></div>
 </div>
 <p><strong>TL;DR.</strong> Standard neural networks can ignore causal structure that we already know. CaTs and causal fully connected networks bake a user-specified DAG into the architecture, so predictions respect the allowed causal pathways. The aim is better robustness under distribution shift and clearer interpretation without giving up expressive models.</p>
-<p><strong>Why this matters.</strong> It lets neural predictors respect causal structure that is known in advance. That can improve robustness to covariate shift while making the allowed information flow much easier to interpret.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{vowels2026cats,
@@ -645,16 +703,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-8" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments]({{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-8" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Causal Effect Identification in Heterogeneous Environments from Higher-Order Moments]({{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">latent confounding</span><span class="pub-keyword">heterogeneous environments</span><span class="pub-keyword">higher-order moments</span></div>
 <div class="pub-card" id="pub-details-8" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal identification</span><span class="pub-keyword">latent confounding</span><span class="pub-keyword">heterogeneous environments</span><span class="pub-keyword">higher-order moments</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/IdentificationMultipleDomain" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v286/kivva25a.html" target="_blank" rel="noopener noreferrer">UAI / PMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/heterogeneous-environments-higher-order-moments/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/IdentificationMultipleDomain" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v286/kivva25a.html" target="_blank" rel="noopener noreferrer">UAI / PMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> Multiple environments can reveal a causal effect even with latent confounding, if the effect stays invariant and the heterogeneity is structured. Higher-order moments identify and estimate the effect when only one part of the data-generating mechanism changes across environments. If both the latent and treatment noise distributions change, identification can fail.</p>
-<p><strong>Why this matters.</strong> It turns heterogeneity across environments into identifying information rather than nuisance variation. Under the right invariances, higher-order moments can recover effects that latent confounding would otherwise hide.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v286-kivva25a,
@@ -673,16 +731,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-9" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Multi-armed Bandits with Missing Outcomes]({{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-9" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">UAI 2025</span> [Multi-armed Bandits with Missing Outcomes]({{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">multi-armed bandits</span><span class="pub-keyword">missing data</span><span class="pub-keyword">online learning</span><span class="pub-keyword">regret</span></div>
 <div class="pub-card" id="pub-details-9" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">multi-armed bandits</span><span class="pub-keyword">missing data</span><span class="pub-keyword">online learning</span><span class="pub-keyword">regret</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/ilia-mahrooghi/Multi-armed-Bandits-with-Missing-Outcome" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v286/mahrooghi25a.html" target="_blank" rel="noopener noreferrer">UAI / PMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/multi-armed-bandits-missing-outcomes/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/ilia-mahrooghi/Multi-armed-Bandits-with-Missing-Outcome" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v286/mahrooghi25a.html" target="_blank" rel="noopener noreferrer">UAI / PMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> Missing rewards are not harmless in bandits: ignoring why outcomes disappear can drive regret to linear. We develop algorithms for both missing-at-random and missing-not-at-random feedback and show how the missingness mechanism changes achievable regret. Accounting for it gives much better decision-making guarantees.</p>
-<p><strong>Why this matters.</strong> Missing feedback can fundamentally break bandit learning, not just make it noisier. Modeling the missingness mechanism restores meaningful regret guarantees in settings closer to real decision systems.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v286-mahrooghi25a,
@@ -701,16 +759,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-10" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">CLeaR 2025</span> [Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding]({{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-10" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">CLeaR 2025</span> [Sample Complexity of Nonparametric Closeness Testing for Continuous Distributions and Its Application to Causal Discovery with Hidden Confounding]({{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">distribution testing</span><span class="pub-keyword">sample complexity</span><span class="pub-keyword">hidden confounding</span></div>
 <div class="pub-card" id="pub-details-10" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal discovery</span><span class="pub-keyword">distribution testing</span><span class="pub-keyword">sample complexity</span><span class="pub-keyword">hidden confounding</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v275/jamshidi25a.html" target="_blank" rel="noopener noreferrer">CLeaR / PMLR</a><a class="pub-btn pub-btn--venue" href="https://openreview.net/forum?id=Dz31Rlv7S8" target="_blank" rel="noopener noreferrer">OpenReview</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/nonparametric-closeness-testing-hidden-confounding/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v275/jamshidi25a.html" target="_blank" rel="noopener noreferrer">CLeaR / PMLR</a><a class="pub-btn pub-btn--venue" href="https://openreview.net/forum?id=Dz31Rlv7S8" target="_blank" rel="noopener noreferrer">OpenReview</a></div>
 </div>
 <p><strong>TL;DR.</strong> Can we tell two continuous distributions apart without parametric assumptions, and with how many samples? A von Mises KL estimator gives an optimal-rate closeness test under smoothness assumptions. Plugging that test into causal discovery yields finite-sample guarantees even for nonlinear, multidimensional variables with hidden confounding.</p>
-<p><strong>Why this matters.</strong> It connects optimal nonparametric distribution testing to causal discovery with hidden confounding. The finite-sample guarantees cover nonlinear, multidimensional continuous settings where theory is usually much thinner.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v275-jamshidi25a,
@@ -729,16 +787,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-11" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2024</span> [Fast Proxy Experiment Design for Causal Effect Identification]({{ '/papers/fast-proxy-experiment-design/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-11" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2024</span> [Fast Proxy Experiment Design for Causal Effect Identification]({{ '/papers/fast-proxy-experiment-design/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/fast-proxy-experiment-design/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">experiment design</span><span class="pub-keyword">proxy interventions</span><span class="pub-keyword">optimization</span></div>
 <div class="pub-card" id="pub-details-11" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal identification</span><span class="pub-keyword">experiment design</span><span class="pub-keyword">proxy interventions</span><span class="pub-keyword">optimization</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/5bd9fbb3a5a985f80c16ddd0ec1dfc43-Abstract.html" target="_blank" rel="noopener noreferrer">NeurIPS</a><a class="pub-btn pub-btn--slides" href="https://neurips.cc/media/neurips-2024/Slides/96127.pdf" target="_blank" rel="noopener noreferrer">Slides</a><a class="pub-btn pub-btn--poster" href="https://sepehrelahi.com/assets/pdf/fastproxy_poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a><a class="pub-btn pub-btn--talk" href="https://recorder-v3.slideslive.com/?s=7e563e56-4470-492b-9376-b27f84e3788e&amp;share=95761" target="_blank" rel="noopener noreferrer">Video</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/fast-proxy-experiment-design/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/5bd9fbb3a5a985f80c16ddd0ec1dfc43-Abstract.html" target="_blank" rel="noopener noreferrer">NeurIPS</a><a class="pub-btn pub-btn--slides" href="https://neurips.cc/media/neurips-2024/Slides/96127.pdf" target="_blank" rel="noopener noreferrer">Slides</a><a class="pub-btn pub-btn--poster" href="https://sepehrelahi.com/assets/pdf/fastproxy_poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a><a class="pub-btn pub-btn--talk" href="https://recorder-v3.slideslive.com/?s=7e563e56-4470-492b-9376-b27f84e3788e&amp;share=95761" target="_blank" rel="noopener noreferrer">Video</a></div>
 </div>
 <p><strong>TL;DR.</strong> Direct interventions may be too expensive, so intervene on cheaper proxy variables instead. We reformulate the minimum-cost proxy experiment problem to make exact optimization much faster in practice, and also study designs based on valid adjustment sets. The same identification goal can be reached with far less computational overhead.</p>
-<p><strong>Why this matters.</strong> It makes proxy-experiment design computationally practical when direct interventions are too costly or impossible. The reformulations turn a previously cumbersome exact design problem into something that can be solved much faster.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{elahi2024fast,
@@ -755,16 +813,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status">SPOTLIGHT</span> [Triple changes estimator for targeted policies]({{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-12" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2024</span> <span class="pub-status">SPOTLIGHT</span> [Triple changes estimator for targeted policies]({{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">policy evaluation</span><span class="pub-keyword">triple differences</span><span class="pub-keyword">changes-in-changes</span><span class="pub-keyword">optimal transport</span></div>
 <div class="pub-card" id="pub-details-12" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">policy evaluation</span><span class="pub-keyword">triple differences</span><span class="pub-keyword">changes-in-changes</span><span class="pub-keyword">optimal transport</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/Triple-Changes" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://icml.cc/virtual/2024/poster/32647" target="_blank" rel="noopener noreferrer">ICML</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v235/akbari24a.html" target="_blank" rel="noopener noreferrer">PMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/triple-changes-estimator-targeted-policies/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/Triple-Changes" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://icml.cc/virtual/2024/poster/32647" target="_blank" rel="noopener noreferrer">ICML</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v235/akbari24a.html" target="_blank" rel="noopener noreferrer">PMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> Triple differences relax parallel trends, while changes-in-changes recovers an entire counterfactual distribution rather than just a mean. We combine the two into a triple-changes estimator and extend it to multivariate outcomes using optimal transport. The method is illustrated on Medicaid expansion and children&#x27;s preventive care.</p>
-<p><strong>Why this matters.</strong> It moves policy evaluation beyond average effects to entire counterfactual distributions. The optimal-transport extension also opens the door to multivariate outcomes rather than a single scalar response.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v235-akbari24a,
@@ -783,16 +841,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-13" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPs 2023</span> [Causal effect identification in uncertain causal networks]({{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-13" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPs 2023</span> [Causal effect identification in uncertain causal networks]({{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">graph uncertainty</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">causal graphs</span></div>
 <div class="pub-card" id="pub-details-13" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal identification</span><span class="pub-keyword">graph uncertainty</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">causal graphs</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/Causal-Effect-Identification-in-Uncertain-Causal-Networks" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2023/poster/70424" target="_blank" rel="noopener noreferrer">NeurIPS + video</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/017c897b4d85a744f345ccbf9d71e501-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Proceedings</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/causal-identification-uncertain-causal-networks/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/Causal-Effect-Identification-in-Uncertain-Causal-Networks" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2023/poster/70424" target="_blank" rel="noopener noreferrer">NeurIPS + video</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/017c897b4d85a744f345ccbf9d71e501-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Proceedings</a></div>
 </div>
 <p><strong>TL;DR.</strong> Causal identification usually assumes the graph is known exactly. Here each edge can be uncertain, and the task is to find the most plausible subgraph in which the target effect is identifiable. That optimization is NP-hard, so we develop efficient approximations and test them on synthetic and real networks.</p>
-<p><strong>Why this matters.</strong> Real causal graphs are rarely known with certainty. This work lets identification account for uncertain edges explicitly instead of pretending that one estimated graph is unquestionably correct.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{akbari2023uncertain,
@@ -808,16 +866,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-14" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023</span> [Causal imitability under context-specific independence relations]({{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-14" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023</span> [Causal imitability under context-specific independence relations]({{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">imitation learning</span><span class="pub-keyword">context-specific independence</span><span class="pub-keyword">latent confounding</span><span class="pub-keyword">causal inference</span></div>
 <div class="pub-card" id="pub-details-14" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">imitation learning</span><span class="pub-keyword">context-specific independence</span><span class="pub-keyword">latent confounding</span><span class="pub-keyword">causal inference</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/causal-imitation-learning/" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2023/poster/71382" target="_blank" rel="noopener noreferrer">NeurIPS + video</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/54e13b23fa2f399cea6e67acf9063c40-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Proceedings</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/causal-imitability-context-specific-independence/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/causal-imitation-learning/" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2023/poster/71382" target="_blank" rel="noopener noreferrer">NeurIPS + video</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/54e13b23fa2f399cea6e67acf9063c40-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Proceedings</a></div>
 </div>
 <p><strong>TL;DR.</strong> Imitation can fail when hidden causal structure makes the expert&#x27;s behavior impossible to reproduce from observed data. Known context-specific independences can change that answer. We characterize when they help, show the general feasibility problem is NP-hard, and give a sound algorithm that uses both CSI information and data.</p>
-<p><strong>Why this matters.</strong> Context-specific knowledge can turn an impossible imitation problem into a solvable one. It shows that causal structure can matter even when the extra independence information only holds in particular contexts.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{jamshidi2023imitability,
@@ -833,16 +891,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> [Minimm-cost Intervention Design for Causal Effect Identification]({{ '/papers/minimum-cost-intervention-design/' | relative_url }}){:.pub-title-link}.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-15" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">ICML 2022</span> <span class="pub-status">ORAL</span> <span class="pub-award"><span class="pub-award-icon" aria-hidden="true">🏆</span>Outstanding Paper Runner-up Award</span> [Minimm-cost Intervention Design for Causal Effect Identification]({{ '/papers/minimum-cost-intervention-design/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/minimum-cost-intervention-design/' | relative_url }}">Explore paper →</a>.
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal identification</span><span class="pub-keyword">intervention design</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">do-calculus</span></div>
 <div class="pub-card" id="pub-details-15" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal identification</span><span class="pub-keyword">intervention design</span><span class="pub-keyword">combinatorial optimization</span><span class="pub-keyword">do-calculus</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/min_cost_intervention/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://icml.cc/virtual/2022/oral/17380" target="_blank" rel="noopener noreferrer">ICML</a><a class="pub-btn pub-btn--slides" href="https://icml.cc/media/icml-2022/Slides/17380_5TIv6sn.pdf" target="_blank" rel="noopener noreferrer">Slides</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v162/akbari22a.html" target="_blank" rel="noopener noreferrer">PMLR</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/minimum-cost-intervention-design/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/SinaAkbarii/min_cost_intervention/tree/main" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://icml.cc/virtual/2022/oral/17380" target="_blank" rel="noopener noreferrer">ICML</a><a class="pub-btn pub-btn--slides" href="https://icml.cc/media/icml-2022/Slides/17380_5TIv6sn.pdf" target="_blank" rel="noopener noreferrer">Slides</a><a class="pub-btn pub-btn--venue" href="https://proceedings.mlr.press/v162/akbari22a.html" target="_blank" rel="noopener noreferrer">PMLR</a></div>
 </div>
 <p><strong>TL;DR.</strong> When observational data cannot identify the effect you want, the next question is: what is the cheapest experiment that will? We connect minimum-cost intervention design to the minimum hitting-set problem and give exact, approximation, and polynomial-time heuristic algorithms. The heuristics achieve low regret on random causal graphs.</p>
-<p><strong>Why this matters.</strong> It gives a principled answer to which experiments are worth paying for when observational data are insufficient. The connection to hitting set brings both hardness results and practical optimization tools.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@InProceedings{pmlr-v162-akbari22a,
@@ -861,16 +919,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-16" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">AAAI 2022</span> [Learning Bayesian Networks in the Presence of Structural Side Information]({{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-16" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">AAAI 2022</span> [Learning Bayesian Networks in the Presence of Structural Side Information]({{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">Bayesian networks</span><span class="pub-keyword">causal discovery</span><span class="pub-keyword">structural side information</span><span class="pub-keyword">constraint-based learning</span></div>
 <div class="pub-card" id="pub-details-16" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">Bayesian networks</span><span class="pub-keyword">causal discovery</span><span class="pub-keyword">structural side information</span><span class="pub-keyword">constraint-based learning</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/Ehsan-Mokhtarian/RSL" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://ojs.aaai.org/index.php/AAAI/article/view/20750" target="_blank" rel="noopener noreferrer">AAAI</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/learning-bayesian-networks-structural-side-information/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/Ehsan-Mokhtarian/RSL" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://ojs.aaai.org/index.php/AAAI/article/view/20750" target="_blank" rel="noopener noreferrer">AAAI</a></div>
 </div>
 <p><strong>TL;DR.</strong> Structural side information can make Bayesian-network learning much cheaper. We build recursive constraint-based algorithms for bounded clique number and diamond-free graphs, showing that bounded-treewidth networks can be learned with polynomially many conditional-independence tests. Experiments show strong gains in scalability.</p>
-<p><strong>Why this matters.</strong> It shows that even coarse structural knowledge can dramatically reduce the cost of learning Bayesian networks. Bounded clique number or diamond-free structure can turn an exponential testing burden into polynomial complexity.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{mokhtarian2022learning,
@@ -889,16 +947,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 </div>
 
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-17" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2021</span> [Recursive Causal Structure Learning in the Presence of Latent Variables and Selection Bias]({{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}){:.pub-title-link}.
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-17" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2021</span> [Recursive Causal Structure Learning in the Presence of Latent Variables and Selection Bias]({{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}">Explore paper →</a>.
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">latent variables</span><span class="pub-keyword">selection bias</span><span class="pub-keyword">MAGs</span></div>
 <div class="pub-card" id="pub-details-17" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal discovery</span><span class="pub-keyword">latent variables</span><span class="pub-keyword">selection bias</span><span class="pub-keyword">MAGs</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--repo" href="https://github.com/Ehsan-Mokhtarian/L-MARVEL" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper/2021/hash/53edebc543333dfbf7c5933af792c9c4-Abstract.html" target="_blank" rel="noopener noreferrer">NeurIPS</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2021/session/44791" target="_blank" rel="noopener noreferrer">Conference</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/recursive-causal-structure-learning-latent-selection-bias/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--repo" href="https://github.com/Ehsan-Mokhtarian/L-MARVEL" target="_blank" rel="noopener noreferrer">GitHub</a><a class="pub-btn pub-btn--venue" href="https://proceedings.neurips.cc/paper/2021/hash/53edebc543333dfbf7c5933af792c9c4-Abstract.html" target="_blank" rel="noopener noreferrer">NeurIPS</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2021/session/44791" target="_blank" rel="noopener noreferrer">Conference</a></div>
 </div>
 <p><strong>TL;DR.</strong> Latent variables and selection bias make constraint-based causal discovery especially expensive. We identify removable variables in a MAG, peel them off recursively, and still retain soundness and completeness. This reduces both the number of conditional-independence tests and the size of their conditioning sets, with near-tight worst-case complexity.</p>
-<p><strong>Why this matters.</strong> It extends efficient recursive discovery to settings with latent confounding and selection bias. The method keeps soundness and completeness while reducing both the number and size of conditional-independence tests.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{akbari2021recursive,
@@ -919,16 +977,16 @@ Fully-Connected Neural Networks for Causally Constrained Predictions]({{ '/paper
 
 ## Workshop Publications:
 <div class="pub-entry" markdown="1">
-<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-18" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023 — workshop on Optimal Transport and Machine Learning (OTML)</span> [Causal Discovery via Monotone Triangular Transport Maps]({{ '/papers/causal-discovery-transport-maps/' | relative_url }}){:.pub-title-link}
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-18" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> <span class="pub-venue">NeurIPS 2023 — workshop on Optimal Transport and Machine Learning (OTML)</span> [Causal Discovery via Monotone Triangular Transport Maps]({{ '/papers/causal-discovery-transport-maps/' | relative_url }}){:.pub-title-link} <a class="pub-explore-link" href="{{ '/papers/causal-discovery-transport-maps/' | relative_url }}">Explore paper →</a>
 
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">causal discovery</span><span class="pub-keyword">optimal transport</span><span class="pub-keyword">conditional independence</span><span class="pub-keyword">transport maps</span></div>
 <div class="pub-card" id="pub-details-18" hidden>
-<div class="pub-keywords"><strong>Keywords.</strong><span class="pub-keyword">causal discovery</span><span class="pub-keyword">optimal transport</span><span class="pub-keyword">conditional independence</span><span class="pub-keyword">transport maps</span></div>
+
 <div class="pub-resources">
 <span class="pub-resources-label"><strong>Resources.</strong></span>
-<div class="pub-actions"><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2023/74553" target="_blank" rel="noopener noreferrer">NeurIPS workshop</a><a class="pub-btn pub-btn--venue" href="https://otmlworkshop.github.io/accepted_papers/" target="_blank" rel="noopener noreferrer">OTML</a><a class="pub-btn pub-btn--venue" href="https://openreview.net/forum?id=PMGGrKTIii" target="_blank" rel="noopener noreferrer">OpenReview</a></div>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/causal-discovery-transport-maps/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--venue" href="https://neurips.cc/virtual/2023/74553" target="_blank" rel="noopener noreferrer">NeurIPS workshop</a><a class="pub-btn pub-btn--venue" href="https://otmlworkshop.github.io/accepted_papers/" target="_blank" rel="noopener noreferrer">OTML</a><a class="pub-btn pub-btn--venue" href="https://openreview.net/forum?id=PMGGrKTIii" target="_blank" rel="noopener noreferrer">OpenReview</a></div>
 </div>
 <p><strong>TL;DR.</strong> Monotone triangular transport maps turn distribution fitting into a tool for causal discovery. They give noise-agnostic conditional-independence tests for constraint-based learning and a new score for score-based learning. With stronger model assumptions, the same framework can identify a unique causal graph.</p>
-<p><strong>Why this matters.</strong> It uses transport maps as a flexible bridge between distribution modeling and causal discovery. The same machinery supports both conditional-independence testing and score-based structure learning beyond simple Gaussian models.</p>
 <div class="pub-citation">
 <div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
 <pre class="bibtex-source">@inproceedings{akbari2023transport,
