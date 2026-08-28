@@ -160,12 +160,97 @@ nav-order : 3
   font-size: 0.82em;
 }
 
+
+.contact-email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42em;
+  margin-top: 0.48em;
+}
+
+.contact-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.30em;
+  padding: 0.20em 0.58em;
+  border: 1px solid currentColor;
+  border-radius: 0.30em;
+  background: transparent;
+  color: var(--site-cyan);
+  font: inherit;
+  font-size: 0.84em;
+  line-height: 1.35;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.contact-email-btn:visited {
+  color: var(--site-cyan);
+}
+
+.contact-email-btn:hover,
+.contact-email-btn:focus-visible {
+  transform: translateY(-1px);
+  background: var(--hover-cyan, rgba(8, 127, 145, 0.08));
+  text-decoration: none;
+}
+
+.contact-email-btn--copy::before {
+  content: "⧉";
+}
+
+.contact-email-btn--send::before {
+  content: "✉";
+}
+
 @media (max-width: 600px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
 }
 </style>
+
+
+<script>
+function copyContactEmail(button) {
+  var email = 'sa2385@cam.ac.uk';
+
+  var finish = function () {
+    var original = button.textContent;
+    button.textContent = 'Copied!';
+    window.setTimeout(function () {
+      button.textContent = original;
+    }, 1200);
+  };
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(finish).catch(function () {
+      fallbackCopyContactEmail(email, finish);
+    });
+  } else {
+    fallbackCopyContactEmail(email, finish);
+  }
+}
+
+function fallbackCopyContactEmail(text, callback) {
+  var area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.opacity = '0';
+  document.body.appendChild(area);
+  area.select();
+
+  try {
+    document.execCommand('copy');
+    callback();
+  } finally {
+    document.body.removeChild(area);
+  }
+}
+</script>
+
 
 <div class="contact-grid">
   <div class="contact-card">
@@ -182,7 +267,11 @@ nav-order : 3
   </div>
   <div class="contact-card">
     <span class="contact-label">Email</span>
-    <div class="contact-value">[initials]2385@cam.ac.uk</div>
+    <div class="contact-value">sa2385@cam.ac.uk</div>
+    <div class="contact-email-actions">
+      <button class="contact-email-btn contact-email-btn--copy" type="button" onclick="copyContactEmail(this)">Copy email</button>
+      <a class="contact-email-btn contact-email-btn--send" href="mailto:sa2385@cam.ac.uk">Send an email</a>
+    </div>
   </div>
 </div>
 

@@ -444,8 +444,6 @@ function fallbackCopyPubBibtex(text, callback) {
 }
 </script>
 
-See my most recent publications on my [Google Scholar page](https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate).
-
 <div class="pub-page-meta">
 <strong>Last updated:</strong> August 2026 · <a href="https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a> may occasionally be more up to date.
 </div>
