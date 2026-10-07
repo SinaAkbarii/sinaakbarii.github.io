@@ -168,6 +168,13 @@
 
 <div class="news-list">
 
+
+<div class="news-item">
+  <div class="news-meta"><span class="news-date">Oct 2026</span></div>
+  <div class="news-copy">I am giving a talk at <a class="news-paper-link" href="https://warwick.ac.uk/fac/sci/dcs/events/fairs/">Foundations of AI Rising Stars Workshop</a> at the university of Warwick.
+  </div>
+</div>
+
 <div class="news-item">
   <div class="news-meta">
     <span class="news-date">Aug 2026</span>
