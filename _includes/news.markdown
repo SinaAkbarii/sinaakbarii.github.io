@@ -176,6 +176,11 @@
 </div>
 
 <div class="news-item">
+  <div class="news-meta"><span class="news-date">Oct 2025</span></div>
+  <div class="news-copy">A new manuscript is out! <a class="news-paper-link" href="https://arxiv.org/abs/2610.25246">Estimating Causal Bounds from Observational Data With Neural Generative Models</a>.</div>
+</div>
+
+<div class="news-item">
   <div class="news-meta">
     <span class="news-date">Aug 2026</span>
     <span class="news-award">🏆 UAI Best Paper Award</span>
