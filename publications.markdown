@@ -485,7 +485,7 @@ function fallbackCopyPubBibtex(text, callback) {
 </script>
 
 <div class="pub-page-meta">
-<strong>Last updated:</strong> August 2026 · <a href="https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a> may occasionally be more up to date.
+<strong>Last updated:</strong> October 2026 · <a href="https://scholar.google.com/citations?hl=en&user=-kNnS1AAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a> may occasionally be more up to date.
 </div>
 
 <div class="pub-detail-hint">
@@ -495,6 +495,31 @@ function fallbackCopyPubBibtex(text, callback) {
 
 
 ## Preprints:
+<div class="pub-entry" markdown="1">
+<button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-19" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> [Estimating Causal Bounds from Observational Data With Neural Generative Models]({{ '/papers/neural-generative-bounds/' | relative_url }}){:.pub-title-link}
+
+<div class="pub-keywords pub-keywords--always"><span class="pub-keyword">partial identification</span><span class="pub-keyword">causal bounds</span><span class="pub-keyword">neural generative models</span><span class="pub-keyword">energy distance</span></div>
+<div class="pub-card" id="pub-details-19" hidden>
+
+<div class="pub-resources">
+<span class="pub-resources-label"><strong>Resources.</strong></span>
+<div class="pub-actions"><a class="pub-btn pub-btn--overview" href="{{ '/papers/neural-generative-bounds/' | relative_url }}">Explore paper</a><a class="pub-btn pub-btn--venue" href="https://arxiv.org/abs/2610.25246v1" target="_blank" rel="noopener noreferrer">arXiv</a></div>
+</div>
+<p><strong>TL;DR.</strong> Hidden confounding can leave a range of causal effects compatible with the same observational data. We estimate its endpoints using neural generative models, an energy-distance loss, and extrapolation to the exact-fit limit. Across instrumental-variable, proxy, and mediated benchmarks, the resulting bounds are consistently more accurate than those of the evaluated neural baselines.</p>
+<div class="pub-citation">
+<div class="pub-citation-header"><strong>Cite this paper.</strong><button class="pub-copy-btn" type="button" onclick="copyPubBibtex(this)" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">Copy</button></div>
+<pre class="bibtex-source">@misc{zhu2026estimating,
+  title         = {Estimating Causal Bounds from Observational Data With Neural Generative Models},
+  author        = {Max Zhu and Srivathsan Amruth and Sina Akbari and Qingyuan Zhao},
+  year          = {2026},
+  eprint        = {2610.25246},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2610.25246v1}
+}</pre>
+</div>
+</div>
+</div>
+
 <div class="pub-entry" markdown="1">
 <button class="pub-toggle-button" type="button" onclick="togglePubDetails(this)" aria-expanded="false" aria-controls="pub-details-1" aria-label="Show paper details" title="Show paper details"><span class="pub-chevron" aria-hidden="true"></span></button> [Semiparametric Triple Difference Estimators]({{ '/papers/semiparametric-triple-difference/' | relative_url }}){:.pub-title-link}
 
